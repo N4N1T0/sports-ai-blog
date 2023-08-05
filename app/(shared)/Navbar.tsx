@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ModeToggle } from './Theme'
 import SocialLinks from './SocialLinks'
+import Ad1 from '@/public/assets/ad-1.jpg'
 
 const Navbar = () => {
   return (
@@ -25,8 +26,18 @@ const Navbar = () => {
           <h1 className='font-bold text-3xl uppercase md:text-5xl'>Sport Blog</h1>
           <p className='text-sm mt-3'>a blog dedicated for all sport enthusiastic</p>
         </div>
-        <div className='basis-full w-auto relative h-32 bg-wh-500'>
-          Image Right Here
+        <div className='basis-full w-auto relative h-32'>
+        <Image 
+          fill
+          placeholder='blur'
+          sizes="(max-width: 480px) 100vw,
+                (max-width: 768px) 75vw,
+                (max-width: 1060px) 50vw,
+                33vw"
+          alt='Advertisemnt 1'
+          style={{ objectFit: 'cover'}}
+          src={Ad1}
+        />
         </div>
       </div>
       <hr className='border-1 mx-10'/>

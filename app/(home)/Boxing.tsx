@@ -1,7 +1,12 @@
 import React from 'react'
 import Card from 'app/(shared)/Card'
+import { Post } from "@prisma/client"
 
-const Boxing = () => {
+type BoxingProps = {
+  posts: Array<Post>
+}
+
+const Boxing = ({ posts }: BoxingProps) => {
   return (
     <section className='mt-10'>
       <hr className='border-1'/>
@@ -15,22 +20,26 @@ const Boxing = () => {
       {/* Section */}
       <div className='sm:flex justify-between gap-6'>
         <Card 
-          className='basis-1/3 bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='basis-1/3 mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[0]}
+        />
         <Card 
-          className='basis-1/3 bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='basis-1/3 mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[1]}        
+        />
         <Card 
-          className='basis-1/3 bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='basis-1/3 mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[2]}
+        />
       </div>
       <Card 
-        className='sm:flex bg-wh-500 justify-between items-center gap-2 mt-6 mb-4'
-        imageHeihgt='h-80'
-        ></Card>
+        className='sm:flex justify-between items-center gap-5 mt-6 mb-4'
+        imageHeight='h-80'
+        post={posts[3]}
+        />
     </section>
   )
 }

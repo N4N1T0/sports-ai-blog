@@ -1,7 +1,12 @@
 import React from 'react'
 import Card from './Card'
+import { Post } from "@prisma/client"
 
-const Fitness = () => {
+type FitnessProps = {
+  posts: Array<Post>
+}
+
+const Fitness = ({ posts }: FitnessProps) => {
   return (
     <section className='pt-2 mb-10'>
       <hr className='border-1'/>
@@ -15,21 +20,25 @@ const Fitness = () => {
       {/* Section */}
       <div className='sm:grid grid-cols-2 gap-8'>
         <Card 
-          className='bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[0]}
+        />
         <Card 
-          className='bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[1]}
+        />
         <Card 
-          className='bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[2]}
+        />
         <Card 
-          className='bg-wh-500 mt-4 sm:mt-0'
-          imageHeihgt='h-80'
-        ></Card>
+          className='mt-4 sm:mt-0'
+          imageHeight='h-80'
+          post={posts[3]}
+        />
       </div>
     </section>
   )

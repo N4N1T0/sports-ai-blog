@@ -1,7 +1,12 @@
 import React from 'react'
 import Card from 'app/(shared)/Card'
+import { Post } from "@prisma/client"
 
-const Mma = () => {
+type MmaProps = {
+  posts: Array<Post>
+}
+
+const Mma = ({ posts}: MmaProps) => {
   return (
     <section>
       <hr className='border-1'/>
@@ -15,25 +20,29 @@ const Mma = () => {
       {/* Section  */}
       <div className='sm:grid grid-cols-2 grid-rows-3 gap-x-4 gap-y-3 my-4'>
         <Card 
-          className='bg-wh-500 row-span-3 col-span-1'
-          imageHeihgt='h-96'
+          className='row-span-3 col-span-1'
+          imageHeight='h-96'
           isLongForm
-        ></Card>
+          post={posts[0]}
+        />
         <Card 
-          className='bg-wh-500 row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
-          imageHeihgt='h-40'
+          className='row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
+          imageHeight='h-40'
           isSmallCard
-        ></Card>
+          post={posts[1]}
+        />
         <Card 
-          className='bg-wh-500 row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
-          imageHeihgt='h-40'
+          className='row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
+          imageHeight='h-40'
           isSmallCard
-        ></Card>
+          post={posts[2]}
+        />
         <Card 
-          className='bg-wh-500 row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
-          imageHeihgt='h-40'
+          className='row-span-1 col-span-1 mt-5 sm:mt-0 flex-between'
+          imageHeight='h-40'
           isSmallCard
-        ></Card>
+          post={posts[3]}
+        />
       </div>
     </section>
   )
