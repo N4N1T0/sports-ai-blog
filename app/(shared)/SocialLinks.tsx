@@ -11,7 +11,7 @@ type Props = {
   isDark?: string
 }
 
-const SocialLinks = ({ isDark }: Props) => {
+const SocialLinks = ({ isDark = 'light' }: Props) => {
   return (
     <div className='flex-between gap-3'>
       <Button className='hover:bg-wh-500' size='icon'>

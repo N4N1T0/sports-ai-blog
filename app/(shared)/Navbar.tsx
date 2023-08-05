@@ -4,10 +4,7 @@ import React from 'react'
 import { ModeToggle } from './Theme'
 import SocialLinks from './SocialLinks'
 
-
-type Props = {}
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <header className='mb-5'>
       <nav className='flex-between w-full bg-wh-900 text-wh-10 px-10 py-4'>
@@ -15,8 +12,8 @@ const Navbar = (props: Props) => {
           <SocialLinks />
         </div>
         <div className='flex-between gap-10 text-lg'>
-          <Link href='/' className='hover:text-slate-300 transition-colors duration-250'>Home</Link>
-          <Link href='/' className='hover:text-slate-300 transition-colors duration-250'>Trending</Link>
+          <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Home</Link>
+          <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Trending</Link>
           <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>About</Link>
         </div>
         <div>
