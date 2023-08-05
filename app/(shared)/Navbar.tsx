@@ -9,7 +9,7 @@ const Navbar = () => {
     <header className='mb-5'>
       <nav className='flex-between w-full bg-wh-900 text-wh-10 px-10 py-4'>
         <div className='hidden sm:block '>
-          <SocialLinks />
+          <SocialLinks isDark='dark'/>
         </div>
         <div className='flex-between gap-10 text-lg'>
           <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Home</Link>
