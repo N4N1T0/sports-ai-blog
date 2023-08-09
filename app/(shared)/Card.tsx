@@ -29,7 +29,7 @@ const Card = ({
     <div className={className}>
       <Link
         className="basis-full hover:opacity-70"
-        href={`${process.env.NEXT_PUBLIC_URL}/post/${id}`}
+        href={`/post/${id}`}
       >
         <div className={`relative w-auto mb-3 ${imageHeight}`}>
           <Image
@@ -46,7 +46,7 @@ const Card = ({
         </div>
       </Link>
       <div className={`${isSmallCard ? 'ml-5' : ''} basis-full`}>
-        <Link href={`${process.env.NEXT_PUBLIC_URL}/post/${id}`}>
+        <Link href={`/post/${id}`}>
           <h4
             className={`font-bold hover:text-accent-green
             ${isSmallCard ? "text-base" : "text-lg"}
