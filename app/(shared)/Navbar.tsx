@@ -14,8 +14,8 @@ const Navbar = () => {
         </div>
         <div className='flex-between gap-10 text-lg'>
           <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Home</Link>
-          <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Trending</Link>
-          <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>About</Link>
+          <Link href='/trending' className='hover:text-slate-300 transition-colors duration-200'>Trending</Link>
+          <Link href='/about' className='hover:text-slate-300 transition-colors duration-200'>About</Link>
         </div>
         <div>
           <ModeToggle />

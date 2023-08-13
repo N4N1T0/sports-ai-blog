@@ -2,7 +2,7 @@
   "name": "ai-blog",
   "version": "0.1.0",
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/newSeeds.ts"
   },
   "private": true,
   "scripts": {
