@@ -1,7 +1,7 @@
 import Trending from 'app/(home)/Trending'
 import Mma from 'app/(home)/Mma'
 import Boxing from 'app/(home)/Boxing'
-import Fitness from 'app/(shared)/Fitness'
+import OtherPosts from '@/app/(shared)/OtherPosts'
 import Subscribe from '@/app/(shared)/Subscribe'
 import Sidebar from 'app/(shared)/Sidebar'
 import { prisma } from 'app/api/client'
@@ -11,56 +11,49 @@ import { Post } from "@prisma/client"
 export const revalidate = 120
 
 const getPosts = async () => {
-  const posts = await prisma.post.findMany();
-
-  const formattedPosts = await Promise.all(
-    posts.map(async (post: Post) => {
-      const imageModule = require(`../public${post.image}`);
-      return {
-        ...post,
-        image: imageModule.default,
-      };
-    })
-  );
-
-  return formattedPosts;
-};
+  const posts = await prisma.post.findMany()
+  return posts
+}
 
 export default async function Home() {
   const posts = await getPosts()
  
   const formatPosts = () => {
-    const trendingPosts: Array<Post> = [];
-    const techPosts: Array<Post> = [];
-    const travelPosts: Array<Post> = [];
-    const otherPosts: Array<Post> = [];
+    const trendingPosts: Array<Post> = []
+    const boxingPosts: Array<Post> = []
+    const mmaPosts: Array<Post> = []
+    const fitnessPosts: Array<Post> = []
+    const otherPosts: Array<Post> = []
 
     posts.forEach((post: Post, i: number) => {
       if (i < 4) {
         trendingPosts.push(post);
       }
-      if (post?.category === "Tech") {
-        techPosts.push(post);
-      } else if (post?.category === "Travel") {
-        travelPosts.push(post);
-      } else if (post?.category === "Interior Design") {
+      if (post?.category === "Boxing") {
+        boxingPosts.push(post);
+      } else if (post?.category === "MMA") {
+        mmaPosts.push(post);
+      } else if (post?.category === "Fitness") {
+        fitnessPosts.push(post);
+      }else if (post?.category === "Bussines") {
         otherPosts.push(post);
       }
     });
 
-    return [trendingPosts, techPosts, travelPosts, otherPosts];
+    return [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts];
   };
 
-  const [trendingPosts, techPosts, travelPosts, otherPosts] = formatPosts();
+  const [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts] = formatPosts();
 
   return (
     <main className="px-8 leading-5">
       <Trending posts={trendingPosts}/>
-      <div className="md:flex gap-7 mb-5">
+      <div className="md:flex gap-8 mb-5">
         <div className="basis-3/4">
-          <Mma posts={techPosts} />
-          <Boxing posts={travelPosts} />
-          <Fitness posts={otherPosts} />
+          <Mma posts={mmaPosts} />
+          <Boxing posts={boxingPosts} />
+          <OtherPosts title='Fitness' subTitle='Latest in Fitness' posts={fitnessPosts} />
+          <OtherPosts title='Other Posts' subTitle='A little bit of everything' posts={otherPosts} />
           <div className="hidden md:block">
             <Subscribe />
           </div>
