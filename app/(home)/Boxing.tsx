@@ -13,7 +13,7 @@ const Boxing = ({ posts }: BoxingProps) => {
 
       {/* Header */}
       <div className='flex items-center gap-2 my-6'>
-        <h4 className='bg-accent-green py-2 px-4 text-wh-900 text-sm font-bold uppercase'>Boxing</h4>
+        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold uppercase'>Boxing</h4>
         <p className='font-bold text-2xl'>Latest in Boxing</p>
       </div>
 

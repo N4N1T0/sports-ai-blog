@@ -17,7 +17,6 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
       <div className='z-0 relative w-full h-full'>
         <Image 
           fill
-          placeholder='blur'
           sizes="(max-width: 480px) 100vw,
                 (max-width: 768px) 75vw,
                 (max-width: 1060px) 50vw,
@@ -25,6 +24,8 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
           alt={post?.title}
           style={{ objectFit: 'cover'}}
           src={post?.image}
+          placeholder='blur'
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
         />
       </div>
       <div className='absolute z-1 w-full h-full inset-0 bg-gradient-gradual' />

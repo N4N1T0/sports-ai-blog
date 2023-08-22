@@ -12,6 +12,7 @@ type Props = {
 }
 
 const getPost = async ( id: string ) => {
+  
   const post: PostType | null = await prisma.post.findUnique({
     where: { id }
   })
@@ -33,10 +34,6 @@ const getPost = async ( id: string ) => {
 const page = async ({ params }: Props) => {
   const { id } = params
   const post: FormattedPost | null = await getPost(id)
-
-  if (!post) {
-    return <div>Post Not Found</div>
-  }
 
   return (
     <main className="px-8 leading-5">
