@@ -1,11 +1,11 @@
 import React from 'react'
 import Card from './Card'
-import { Post } from "@prisma/client"
+import { type Post } from '@prisma/client'
 
-type FitnessProps = {
-  posts: Array<Post>
-  title: String
-  subTitle: String
+interface FitnessProps {
+  posts: Post[]
+  title: string
+  subTitle: string
 }
 
 const OtherPosts = ({ posts, title, subTitle }: FitnessProps) => {
@@ -22,13 +22,13 @@ const OtherPosts = ({ posts, title, subTitle }: FitnessProps) => {
       {/* Section */}
       <div className='sm:grid grid-cols-2 gap-8'>
         {posts.map(item => (
-          <Card 
+          <Card
           key={item.id}
           className='mt-4 sm:mt-0'
           imageHeight='h-80'
           post={item}
           />
-        ))} 
+        ))}
       </div>
     </section>
   )

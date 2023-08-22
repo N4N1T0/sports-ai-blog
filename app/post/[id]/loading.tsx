@@ -1,9 +1,7 @@
 import React from 'react'
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from '@/components/ui/skeleton'
 
-type Props = {}
-
-const loading = (props: Props) => {
+const loading = () => {
   return (
     <div className="flex w-full px-8 gap-3 flex-col">
       <Skeleton className="h-4 w-1/2 bg-wh-100" />

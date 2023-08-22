@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Subscribe = () => {
   return (
@@ -15,7 +15,7 @@ const Subscribe = () => {
         SUBSCRIBE
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Subscribe;
+export default Subscribe

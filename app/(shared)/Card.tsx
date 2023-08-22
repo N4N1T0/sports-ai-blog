@@ -1,29 +1,28 @@
-import { Post } from "@prisma/client";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { type Post } from '@prisma/client'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-type Props = {
-  className?: string;
-  post: Post;
-  imageHeight: string;
-  isSmallCard?: boolean;
-  isLongForm?: boolean;
-};
+interface Props {
+  className?: string
+  post: Post
+  imageHeight: string
+  isSmallCard?: boolean
+  isLongForm?: boolean
+}
 
 const Card = ({
   className,
   imageHeight,
   post,
   isSmallCard = false,
-  isLongForm = false,
+  isLongForm = false
 }: Props) => {
-  
-  const { id, title, author, createdAt, image, snippet } = post || {};
+  const { id, title, author, createdAt, image, snippet } = post || {}
 
-  const date = new Date(createdAt);
-  const options = { year: "numeric", month: "long", day: "numeric" } as any;
-  const formattedDate = date.toLocaleDateString("en-US", options);
+  const date = new Date(createdAt)
+  const options = { year: 'numeric', month: 'long', day: 'numeric' } as any
+  const formattedDate = date.toLocaleDateString('en-US', options)
 
   return (
     <div className={className}>
@@ -40,7 +39,7 @@ const Card = ({
                   (max-width: 768px) 75vw,
                   (max-width: 1060px) 50vw,
                   33vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: 'cover' }}
             placeholder='blur'
             blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
           />
@@ -50,28 +49,28 @@ const Card = ({
         <Link href={`/post/${id}`}>
           <h4
             className={`font-bold hover:text-accent-green
-            ${isSmallCard ? "text-base" : "text-lg"}
-            ${isSmallCard ? "line-clamp-2" : ""}
+            ${isSmallCard ? 'text-base' : 'text-lg'}
+            ${isSmallCard ? 'line-clamp-2' : ''}
           `}
           >
             {title}
           </h4>
         </Link>
 
-        <div className={`${isSmallCard ? "my-2" : "flex my-3"} gap-3`}>
+        <div className={`${isSmallCard ? 'my-2' : 'flex my-3'} gap-3`}>
           <h5 className="font-semibold text-xs">{author}</h5>
           <h6 className="text-wh-300 text-xs">{formattedDate}</h6>
         </div>
         <p
           className={`text-wh-500 ${
-            isLongForm ? "line-clamp-5" : "line-clamp-3"
+            isLongForm ? 'line-clamp-5' : 'line-clamp-3'
           }`}
         >
           {snippet}
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

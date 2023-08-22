@@ -3,17 +3,17 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import Navbar from 'app/(shared)/Navbar'
 import Footer from './(shared)/Footer'
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from '@/components/theme-provider'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Sports-Blog',
-  description: 'A blog for sports enthusiast',
+  description: 'A blog for sports enthusiast'
 }
 
-export default function RootLayout({
-  children,
+export default function RootLayout ({
+  children
 }: {
   children: React.ReactNode
 }) {

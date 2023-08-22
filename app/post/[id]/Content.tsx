@@ -1,23 +1,22 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FormattedPost } from 'app/type'
+import { type FormattedPost } from 'app/type'
 import Image from 'next/image'
 import SocialLinks from '@/app/(shared)/SocialLinks'
 import { useTheme } from 'next-themes'
-import { useEditor, EditorContent } from '@tiptap/react'
+import { useEditor, EditorContent, type Editor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { Editor } from '@tiptap/react'
+
 import EditorMenuBar from './EditorMenuBar'
 import CategoryAndEdit from './CategoryAndEdit'
 import Articule from './Articule'
 
-type Props = {
+interface Props {
   post: FormattedPost | null
 }
 
-function Content({ post }: Props) {
-
+function Content ({ post }: Props) {
   // Use States
   const [isEditable, setIsEditable] = useState<boolean>(false)
   const [title, setTitle] = useState<string | undefined>(post?.title)
@@ -30,10 +29,10 @@ function Content({ post }: Props) {
   // Date
   let formattedDate = ''
   if (post?.createdAt) {
-    const date = new Date(post.createdAt);
-    const options = { year: "numeric", month: "long", day: "numeric" } as any;
-    formattedDate = date.toLocaleDateString("en-US", options);
-  } 
+    const date = new Date(post.createdAt)
+    const options = { year: 'numeric', month: 'long', day: 'numeric' } as any
+    formattedDate = date.toLocaleDateString('en-US', options)
+  }
 
   // Handle functions
   const handleIsEditable = (bool: boolean) => {
@@ -53,7 +52,7 @@ function Content({ post }: Props) {
   const editor = useEditor({
     extensions: [StarterKit],
     onUpdate: handelUpdate,
-    content: content,
+    content,
     editable: isEditable,
     editorProps: {
       attributes: {
@@ -69,7 +68,7 @@ function Content({ post }: Props) {
     // Validation
     if (title === '') setTitleError('This field is required')
     if (editor?.isEmpty) setContentError('This field is required')
-    if (title === '' || editor?.isEmpty ) return
+    if (title === '' || editor?.isEmpty) return
 
     // Fetch to the Back
     const response = await fetch(
@@ -77,24 +76,24 @@ function Content({ post }: Props) {
       {
         method: 'PATCH',
         headers: {
-          'Content-Type' : 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          title: title,
-          content: content
+          title,
+          content
         })
       }
     )
 
     const data = await response.json()
 
-      handleIsEditable(false)
-      setTempTitle('')
-      setTempContent('')
+    handleIsEditable(false)
+    setTempTitle('')
+    setTempContent('')
 
-      setTitle(data.title)
-      setContent(data.content)
-      editor?.commands.setContent(data.content)
+    setTitle(data.title)
+    setContent(data.content)
+    editor?.commands.setContent(data.content)
   }
 
   // Theme Toogle
@@ -105,7 +104,7 @@ function Content({ post }: Props) {
       <h5 className='text-wh-300'>{`Home > ${post?.category} > ${post?.title}`}</h5>
 
       {/* Category and Edit */}
-      <CategoryAndEdit 
+      <CategoryAndEdit
        isEditable={isEditable}
        handleIsEditable={handleIsEditable}
        title={title}
@@ -121,9 +120,10 @@ function Content({ post }: Props) {
       <form onSubmit={handleSubmit}>
         {/* Header */}
         <>
-        {isEditable ? (
+        {isEditable
+          ? (
           <div>
-            <textarea 
+            <textarea
               className='border-2 rounded-md bg-wh-50 w-full'
               placeholder='Title'
               onChange={handleTitle}
@@ -131,9 +131,10 @@ function Content({ post }: Props) {
             />
             {titleError && <p className='mt-1 text-wh-500'>{titleError}</p>}
           </div>
-        ) : (
+            )
+          : (
           <h3 className='font-bold text-3xl mt-3'>{title}</h3>
-        )}
+            )}
         <div className='flex gap-2'>
           <h5 className='font-semibold text-xs'>By {post?.author}</h5>
           <h6 className='text-wh-300 text-sm'>{formattedDate}</h6>
@@ -151,7 +152,7 @@ function Content({ post }: Props) {
                     (max-width: 768px) 85vw,
                     (max-width: 1060px) 75vw,
                     70vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: 'cover' }}
               placeholder='blur'
               blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
             />
@@ -170,15 +171,15 @@ function Content({ post }: Props) {
         {/* Submit */}
         {isEditable && (
           <div className='flex justify-end'>
-            <button 
-              type='submit' 
+            <button
+              type='submit'
               className='bg-accent-red hover:bg-wh-500 text-wh-10 font-semibold mt-4 py-2 px-4 uppercase'>
                 Submit
             </button>
           </div>
         )}
       </form>
-      
+
       <div className='hidden md:block mt-8 w-1/3'>
           <SocialLinks isDark={theme} />
       </div>
