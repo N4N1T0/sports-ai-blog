@@ -3,8 +3,6 @@
 import React, { useState } from 'react'
 import { type FormattedPost } from 'app/type'
 import Image from 'next/image'
-import SocialLinks from '@/app/(shared)/SocialLinks'
-import { useTheme } from 'next-themes'
 import { useEditor, type Editor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import CategoryAndEdit from './CategoryAndEdit'
@@ -94,12 +92,9 @@ function Content ({ post }: Props) {
     editor?.commands.setContent(data.content)
   }
 
-  // Theme Toogle
-  const { theme } = useTheme()
-
   return (
     <div className='prose w-full max-w-full mb-8'>
-      <h5 className='text-wh-300'>{`Home > ${post?.category} > ${post?.title}`}</h5>
+      <h5 className='text-wh-300'>{`Home   >   ${post?.category}   >   ${post?.title}`}</h5>
 
       {/* Category and Edit */}
       <CategoryAndEdit
@@ -131,16 +126,16 @@ function Content ({ post }: Props) {
           </div>
             )
           : (
-          <h3 className='font-bold text-3xl mt-3'>{title}</h3>
+          <h3 className='font-bold text-3xl mt-2 dark:text-wh-50'>{title}</h3>
             )}
-        <div className='flex gap-2'>
-          <h5 className='font-semibold text-xs'>By {post?.author}</h5>
+        <div className='flex items-center gap-5'>
+          <h5 className='font-semibold text-xs dark:text-wh-100'>By {post?.author}</h5>
           <h6 className='text-wh-300 text-sm'>{formattedDate}</h6>
         </div>
         </>
 
         {/* Image */}
-        <div className='relative w-auto mt-1 mb-16 h-96'>
+        <div className='relative w-auto mb-16 h-96'>
           {post?.image !== null && (
             <Image
               fill
@@ -177,10 +172,6 @@ function Content ({ post }: Props) {
           </div>
         )}
       </form>
-
-      <div className='hidden md:block mt-8 w-1/3'>
-          <SocialLinks isDark={theme} />
-      </div>
     </div>
   )
 }

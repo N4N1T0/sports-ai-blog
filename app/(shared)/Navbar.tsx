@@ -13,9 +13,9 @@ const Navbar = () => {
           <SocialLinks isDark='dark'/>
         </div>
         <div className='flex-between gap-10 text-lg'>
-          <Link href='/' className='hover:text-slate-300 transition-colors duration-200'>Home</Link>
-          <Link href='/trending' className='hover:text-slate-300 transition-colors duration-200'>Trending</Link>
-          <Link href='/about' className='hover:text-slate-300 transition-colors duration-200'>About</Link>
+          <Link href='/' className='hover:text-accent-orange transition-colors duration-200'>Home</Link>
+          <Link href='/trending' className='hover:text-accent-orange transition-colors duration-200'>Trending</Link>
+          <Link href='/about' className='hover:text-accent-orange transition-colors duration-200'>About</Link>
         </div>
         <div>
           <ModeToggle />
@@ -23,8 +23,8 @@ const Navbar = () => {
       </nav>
       <div className='flex-between gap-8 mt-5 mb-4 mx-10'>
         <div className='basis-2/3 md:mt-3'>
-          <h1 className='font-bold text-3xl uppercase md:text-5xl'>Sport Blog</h1>
-          <p className='text-sm mt-3'>a blog dedicated for all sport enthusiastic</p>
+          <h1 className='font-bold text-3xl uppercase md:text-6xl'>Striking Gold</h1>
+          <p className='text-sm mt-2'>a blog dedicated for all sport enthusiastic</p>
         </div>
         <div className='basis-full w-auto relative h-32'>
         <Image
@@ -41,7 +41,7 @@ const Navbar = () => {
         />
         </div>
       </div>
-      <hr className='border-1 mx-10'/>
+      <hr className='border-1 border-black/10 mx-8 dark:border-wh-10'/>
     </header>
   )
 }

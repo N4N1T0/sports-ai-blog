@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import Twitter from '@/public/assets/social_twitter.png'
 import Facebook from '@/public/assets/social_facebook.png'
 import Instagram from '@/public/assets/social_instagram.png'
@@ -14,7 +13,7 @@ interface Props {
 const SocialLinks = ({ isDark = 'light' }: Props) => {
   return (
     <div className='flex-between gap-3'>
-      <Button className='hover:bg-wh-500' size='icon'>
+      <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
         <a href='https://twitter.com' target='_blank' rel='noreferrer'>
           <Image alt='twitter icon'
           src={Twitter}
@@ -23,8 +22,8 @@ const SocialLinks = ({ isDark = 'light' }: Props) => {
           className={`${isDark === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
-      </Button>
-      <Button className='hover:bg-wh-500' size='icon'>
+      </div>
+      <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
         <a href='https://facebook.com' target='_blank' rel='noreferrer'>
           <Image alt='Facebook icon'
           src={Facebook}
@@ -33,8 +32,8 @@ const SocialLinks = ({ isDark = 'light' }: Props) => {
           className={`${isDark === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
-      </Button>
-      <Button className='hover:bg-wh-500' size='icon'>
+      </div>
+      <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
         <a href='https://instagram.com' target='_blank' rel='noreferrer'>
           <Image alt='instagram icon'
           src={Instagram}
@@ -43,8 +42,8 @@ const SocialLinks = ({ isDark = 'light' }: Props) => {
           className={`${isDark === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
-      </Button>
-      <Button className='hover:bg-wh-500' size='icon'>
+      </div>
+      <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
         <a href='https://googlw.com' target='_blank' rel='noreferrer'>
           <Image alt='google icon'
           src={Google}
@@ -53,8 +52,8 @@ const SocialLinks = ({ isDark = 'light' }: Props) => {
           className={`${isDark === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
-      </Button>
-      <Button className='hover:bg-wh-500' size='icon'>
+      </div>
+      <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
         <a href='https://discord.com' target='_blank' rel='noreferrer'>
           <Image alt='discord icon'
           src={Discord}
@@ -63,7 +62,7 @@ const SocialLinks = ({ isDark = 'light' }: Props) => {
           className={`${isDark === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
-      </Button>
+      </div>
     </div>
   )
 }

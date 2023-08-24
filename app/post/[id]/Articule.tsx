@@ -75,7 +75,7 @@ function Articule ({
         {isEditable && (
           <>
           <EditorMenuBar editor={editor} />
-          <hr className='border-1 mt-2 mb-5'/>
+          <hr className='border-1 border-black/10 mt-2 mb-5 dark:border-wh-10'/>
           </>
         )}
           <EditorContent editor={editor} />

@@ -9,11 +9,11 @@ interface MmaProps {
 const Mma = ({ posts }: MmaProps) => {
   return (
     <section>
-      <hr className='border-1'/>
+      <hr className='border-1 border-black/10 dark:border-wh-10'/>
       {/* Header */}
 
       <div className='flex items-center gap-2 my-6'>
-        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold uppercase'>MMA</h4>
+        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold uppercase mr-2'>MMA</h4>
         <p className='font-bold text-2xl'>Latest in Mix Martial Arts</p>
       </div>
 

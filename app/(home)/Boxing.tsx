@@ -9,11 +9,11 @@ interface BoxingProps {
 const Boxing = ({ posts }: BoxingProps) => {
   return (
     <section className='mt-10'>
-      <hr className='border-1'/>
+      <hr className='border-1 border-black/10 dark:border-wh-10'/>
 
       {/* Header */}
       <div className='flex items-center gap-2 my-6'>
-        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold uppercase'>Boxing</h4>
+        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold uppercase mr-2'>Boxing</h4>
         <p className='font-bold text-2xl'>Latest in Boxing</p>
       </div>
 
