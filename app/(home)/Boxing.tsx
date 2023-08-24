@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from 'app/(shared)/Card'
-import { Post } from "@prisma/client"
+import { type Post } from '@prisma/client'
 
-type BoxingProps = {
-  posts: Array<Post>
+interface BoxingProps {
+  posts: Post[]
 }
 
 const Boxing = ({ posts }: BoxingProps) => {
@@ -19,23 +19,23 @@ const Boxing = ({ posts }: BoxingProps) => {
 
       {/* Section */}
       <div className='sm:flex justify-between gap-6'>
-        <Card 
+        <Card
           className='basis-1/3 mt-4 sm:mt-0'
           imageHeight='h-80'
           post={posts[0]}
         />
-        <Card 
+        <Card
           className='basis-1/3 mt-4 sm:mt-0'
           imageHeight='h-80'
-          post={posts[1]}        
+          post={posts[1]}
         />
-        <Card 
+        <Card
           className='basis-1/3 mt-4 sm:mt-0'
           imageHeight='h-80'
           post={posts[2]}
         />
       </div>
-      <Card 
+      <Card
         className='sm:flex justify-between items-center gap-5 mt-6 mb-4'
         imageHeight='h-80'
         post={posts[3]}

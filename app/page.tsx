@@ -5,8 +5,7 @@ import OtherPosts from '@/app/(shared)/OtherPosts'
 import Subscribe from '@/app/(shared)/Subscribe'
 import Sidebar from 'app/(shared)/Sidebar'
 import { prisma } from 'app/api/client'
-import { Post } from "@prisma/client"
-
+import { type Post } from '@prisma/client'
 
 export const revalidate = 120
 
@@ -15,35 +14,35 @@ const getPosts = async () => {
   return posts
 }
 
-export default async function Home() {
+export default async function Home () {
   const posts = await getPosts()
- 
+
   const formatPosts = () => {
-    const trendingPosts: Array<Post> = []
-    const boxingPosts: Array<Post> = []
-    const mmaPosts: Array<Post> = []
-    const fitnessPosts: Array<Post> = []
-    const otherPosts: Array<Post> = []
+    const trendingPosts: Post[] = []
+    const boxingPosts: Post[] = []
+    const mmaPosts: Post[] = []
+    const fitnessPosts: Post[] = []
+    const otherPosts: Post[] = []
 
     posts.forEach((post: Post, i: number) => {
       if (i < 4) {
-        trendingPosts.push(post);
+        trendingPosts.push(post)
       }
-      if (post?.category === "Boxing") {
-        boxingPosts.push(post);
-      } else if (post?.category === "MMA") {
-        mmaPosts.push(post);
-      } else if (post?.category === "Fitness") {
-        fitnessPosts.push(post);
-      }else if (post?.category === "Bussines") {
-        otherPosts.push(post);
+      if (post?.category === 'Boxing') {
+        boxingPosts.push(post)
+      } else if (post?.category === 'MMA') {
+        mmaPosts.push(post)
+      } else if (post?.category === 'Fitness') {
+        fitnessPosts.push(post)
+      } else if (post?.category === 'Bussines') {
+        otherPosts.push(post)
       }
-    });
+    })
 
-    return [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts];
-  };
+    return [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts]
+  }
 
-  const [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts] = formatPosts();
+  const [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts] = formatPosts()
 
   return (
     <main className="px-8 leading-5">

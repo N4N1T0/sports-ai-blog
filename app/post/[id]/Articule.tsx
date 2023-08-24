@@ -1,27 +1,26 @@
-import React, { useState} from 'react'
-import { Editor, EditorContent } from '@tiptap/react'
-import { Rocket } from 'lucide-react';
+import React, { useState } from 'react'
+import { type Editor, EditorContent } from '@tiptap/react'
+import { Rocket } from 'lucide-react'
 import EditorMenuBar from './EditorMenuBar'
 
-type Props = {
+interface Props {
   contentError: string
   editor: Editor | null
   isEditable: boolean
-  setContent: ( content: string ) => void
+  setContent: (content: string) => void
   title: string | undefined
 }
 
-function Articule({
+function Articule ({
   contentError,
   editor,
   isEditable,
   setContent,
   title
 }: Props) {
-
   const [role, setRole] = useState<string>('I am a helpful assistant.')
 
-  if (!editor) {
+  if (editor === null) {
     return null
   }
 
@@ -29,21 +28,21 @@ function Articule({
     editor
       .chain()
       .focus()
-      .setContent("Generating Ai Content. Please Wait...")
-      .run();
+      .setContent('Generating Ai Content. Please Wait...')
+      .run()
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: title,
-          role: role,
-        }),
-      });
-      const data = await response.json();
-  
-      editor.chain().focus().setContent(data.content).run();
-      setContent(data.content); 
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title,
+        role
+      })
+    })
+    const data = await response.json()
+
+    editor.chain().focus().setContent(data.content).run()
+    setContent(data.content)
   }
 
   return (
@@ -55,11 +54,11 @@ function Articule({
           <h4 className='m-0  p-0'>Generate AI Content</h4>
           <p className='my-1 p-0 text-sm'>What type of writer do you want?</p>
           <div className='flex-between gap-5'>
-            <input 
+            <input
               type="text"
               className='border-2 rounded-md bg-wh-50 px-3 py-1 w-full'
               placeholder='Role'
-              onChange={(e) => setRole(e.target.value)}
+              onChange={(e) => { setRole(e.target.value) }}
               value={role}
             />
             <button type='button' onClick={postAiContent}>
@@ -70,8 +69,8 @@ function Articule({
       )}
 
       <div className={
-        isEditable 
-          ? 'border-2 rounded-md bg-wh-50 p-3' 
+        isEditable
+          ? 'border-2 rounded-md bg-wh-50 p-3'
           : 'w-full max-w-full'}>
         {isEditable && (
           <>
@@ -81,7 +80,7 @@ function Articule({
         )}
           <EditorContent editor={editor} />
       </div>
-      {contentError && <p className='mt-1 text-wh-900'>{contentError}</p>}
+      {typeof contentError === 'string' && <p className='mt-1 text-wh-900'>{contentError}</p>}
     </article>
   )
 }

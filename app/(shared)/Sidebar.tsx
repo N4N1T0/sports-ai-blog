@@ -1,17 +1,14 @@
-"use client"
+'use client'
 
 import React from 'react'
 import SocialLinks from './SocialLinks'
-import { useTheme } from "next-themes"
+import { useTheme } from 'next-themes'
 import Subscribe from './Subscribe'
 import Image from 'next/image'
-import Ad2 from "/public/assets/ad-2.png"
-import AboutProfile from "/public/assets/about-profile.jpg"
+import Ad2 from '@/public/assets/ad-2.png'
+import AboutProfile from '@/public/assets/about-profile.jpg'
 
-type Props = {}
-
-const Sidebar = (props: Props) => {
-
+const Sidebar = () => {
   const { theme } = useTheme()
 
   return (
@@ -39,7 +36,7 @@ const Sidebar = (props: Props) => {
         <Image
           alt="about-profile"
           src={AboutProfile}
-          style={{ width: "500px", height: "250px", objectFit: "cover" }}
+          style={{ width: '500px', height: '250px', objectFit: 'cover' }}
           placeholder='blur'
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
         />

@@ -1,23 +1,22 @@
 import React from 'react'
 import { prisma } from '@/app/api/client'
-import { Post as PostType } from "@prisma/client"
-import { FormattedPost } from 'app/type'
+import { type Post as PostType } from '@prisma/client'
+import { type FormattedPost } from 'app/type'
 import Content from './Content'
 import Sidebar from '@/app/(shared)/Sidebar'
 
 export const revalidate = 120
 
-type Props = {
-  params: { id: string}
+interface Props {
+  params: { id: string }
 }
 
-const getPost = async ( id: string ) => {
-  
+const getPost = async (id: string) => {
   const post: PostType | null = await prisma.post.findUnique({
     where: { id }
   })
 
-  if (!post) {
+  if (post === null) {
     console.log(`Post with the Id ${id} not found`)
     return null
   }

@@ -27,14 +27,14 @@ const Navbar = () => {
           <p className='text-sm mt-3'>a blog dedicated for all sport enthusiastic</p>
         </div>
         <div className='basis-full w-auto relative h-32'>
-        <Image 
+        <Image
           fill
           sizes="(max-width: 480px) 100vw,
                 (max-width: 768px) 75vw,
                 (max-width: 1060px) 50vw,
                 33vw"
           alt='Advertisemnt 1'
-          style={{ objectFit: 'cover'}}
+          style={{ objectFit: 'cover' }}
           src={Ad1}
           placeholder='blur'
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'

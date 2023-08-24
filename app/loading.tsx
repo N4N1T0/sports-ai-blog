@@ -1,9 +1,7 @@
 import React from 'react'
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from '@/components/ui/skeleton'
 
-type Props = {}
-
-const loading = (props: Props) => {
+const loading = () => {
   return (
     <section className='pt-3 pb-8 px-8'>
         <div className='flex items-center gap-3'>

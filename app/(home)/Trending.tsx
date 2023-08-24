@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { Post } from "@prisma/client"
+import { type Post } from '@prisma/client'
 
-type TrendingCardsProps = {
+interface TrendingCardsProps {
   className?: string
   post: Post
 }
@@ -15,14 +15,14 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
      href={`/post/${post?.id}`}
     >
       <div className='z-0 relative w-full h-full'>
-        <Image 
+        <Image
           fill
           sizes="(max-width: 480px) 100vw,
                 (max-width: 768px) 75vw,
                 (max-width: 1060px) 50vw,
                 33vw"
           alt={post?.title}
-          style={{ objectFit: 'cover'}}
+          style={{ objectFit: 'cover' }}
           src={post?.image}
           placeholder='blur'
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
@@ -37,11 +37,11 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
   )
 }
 
-type TrendingProps = {
-  posts: Array<Post>
+interface TrendingProps {
+  posts: Post[]
 }
 
-const Trending = ({ posts }: TrendingProps ) => {
+const Trending = ({ posts }: TrendingProps) => {
   return (
     <section className='pt-3 pb-8'>
       <div className='flex items-center gap-2'>

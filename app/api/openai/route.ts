@@ -1,18 +1,17 @@
-import { NextResponse } from 'next/server';
-import { Configuration, OpenAIApi, CreateChatCompletionResponse } from 'openai'
-import { AxiosResponse } from "axios"
+import { NextResponse } from 'next/server'
+import { Configuration, OpenAIApi } from 'openai'
 
 const configuration = new Configuration({
-  apiKey: process.env.OPEN_AI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+  apiKey: process.env.OPEN_AI_API_KEY
+})
+const openai = new OpenAIApi(configuration)
 
-export async function POST(request: Request) {
+export async function POST (request: Request) {
   try {
     const { title, role } = await request.json()
 
-    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any> = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+    const aiResponse = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
       messages: [
         {
           role: 'user',
@@ -20,10 +19,10 @@ export async function POST(request: Request) {
         },
         {
           role: 'system',
-          content: `${role || 'I am a helpful assistant'}. Write with html tags`
+          content: `${role ?? 'I am a helpful assistant'}. Write with html tags`
         }
-      ],
-    });
+      ]
+    })
 
     return NextResponse.json({ content: aiResponse.data.choices[0].message?.content }, { status: 200 })
   } catch (error) {
