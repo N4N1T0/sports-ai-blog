@@ -9,7 +9,7 @@ interface MmaProps {
 const Mma = ({ posts }: MmaProps) => {
   return (
     <section>
-      <hr className='border-1'/>
+      <hr className='border-1 border-black/10'/>
       {/* Header */}
 
       <div className='flex items-center gap-2 my-6'>

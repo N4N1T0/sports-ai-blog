@@ -11,7 +11,7 @@ interface FitnessProps {
 const OtherPosts = ({ posts, title, subTitle }: FitnessProps) => {
   return (
     <section className='pt-2 mb-10'>
-      <hr className='border-1'/>
+      <hr className='border-1 border-black/10'/>
 
       {/* Header */}
       <div className='flex items-center gap-2 my-6'>
