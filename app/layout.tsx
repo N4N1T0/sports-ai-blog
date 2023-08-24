@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sports-Blog',
+  title: 'Striking Gold',
   description: 'A blog for sports enthusiast'
 }
 

@@ -23,7 +23,7 @@ const Navbar = () => {
       </nav>
       <div className='flex-between gap-8 mt-5 mb-4 mx-10'>
         <div className='basis-2/3 md:mt-3'>
-          <h1 className='font-bold text-3xl uppercase md:text-6xl'>Sport Blog</h1>
+          <h1 className='font-bold text-3xl uppercase md:text-6xl'>Striking Gold</h1>
           <p className='text-sm mt-2'>a blog dedicated for all sport enthusiastic</p>
         </div>
         <div className='basis-full w-auto relative h-32'>
@@ -41,7 +41,7 @@ const Navbar = () => {
         />
         </div>
       </div>
-      <hr className='border-1 border-black/10 mx-8'/>
+      <hr className='border-1 border-black/10 mx-8 dark:border-wh-10'/>
     </header>
   )
 }
