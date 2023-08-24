@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { Configuration, OpenAIApi, type CreateChatCompletionResponse } from 'openai'
+import { Configuration, OpenAIApi } from 'openai'
 
 const configuration = new Configuration({
   apiKey: process.env.OPEN_AI_API_KEY
@@ -10,7 +10,7 @@ export async function POST (request: Request) {
   try {
     const { title, role } = await request.json()
 
-    const aiResponse: AxiosResponse<CreateChatCompletionResponse, any> = await openai.createChatCompletion({
+    const aiResponse = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [
         {
