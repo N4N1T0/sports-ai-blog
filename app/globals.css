@@ -18,3 +18,11 @@ body,
 .flex-between {
   @apply flex justify-between items-center
 }
+
+.tiptap p {
+  @apply dark:text-wh-50
+}
+
+.tiptap h2, h3, h4, h5, h6 {
+  @apply dark:text-wh-10
+}
