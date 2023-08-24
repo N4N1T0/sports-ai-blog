@@ -48,7 +48,7 @@ const Card = ({
       <div className={`${isSmallCard ? 'ml-5' : ''} basis-full`}>
         <Link href={`/post/${id}`}>
           <h4
-            className={`font-bold hover:text-accent-green
+            className={`font-bold hover:text-accent-orange
             ${isSmallCard ? 'text-base' : 'text-lg'}
             ${isSmallCard ? 'line-clamp-2' : ''}
           `}
@@ -59,10 +59,10 @@ const Card = ({
 
         <div className={`${isSmallCard ? 'my-2' : 'flex my-3'} gap-3`}>
           <h5 className="font-semibold text-xs">{author}</h5>
-          <h6 className="text-wh-300 text-xs">{formattedDate}</h6>
+          <h6 className="text-accent-orange text-xs">{formattedDate}</h6>
         </div>
         <p
-          className={`text-wh-500 ${
+          className={`text-wh-500 dark:text-wh-100 ${
             isLongForm ? 'line-clamp-5' : 'line-clamp-3'
           }`}
         >

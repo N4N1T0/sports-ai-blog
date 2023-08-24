@@ -45,7 +45,7 @@ const Trending = ({ posts }: TrendingProps) => {
   return (
     <section className='pt-3 pb-8 space-y-4'>
       <div className='flex items-center gap-2'>
-        <div className='uppercase bg-accent-orange py-2 px-8 text-wh-900 font-bold'>trending
+        <div className='uppercase bg-accent-orange py-2 px-8 text-wh-900 font-bold mr-2'>trending
         </div>
         <p className='text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
       </div>
