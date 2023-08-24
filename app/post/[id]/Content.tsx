@@ -7,7 +7,6 @@ import SocialLinks from '@/app/(shared)/SocialLinks'
 import { useTheme } from 'next-themes'
 import { useEditor, type Editor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-
 import CategoryAndEdit from './CategoryAndEdit'
 import Articule from './Articule'
 
@@ -27,7 +26,7 @@ function Content ({ post }: Props) {
 
   // Date
   let formattedDate = ''
-  if (typeof post?.createdAt === 'string') {
+  if (post?.createdAt !== undefined) {
     const date = new Date(post.createdAt)
     const options = { year: 'numeric', month: 'long', day: 'numeric' } as any
     formattedDate = date.toLocaleDateString('en-US', options)
@@ -43,10 +42,8 @@ function Content ({ post }: Props) {
     setContent((editor as Editor).getHTML())
   }
   const handleTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (title !== null && title !== undefined) {
-      setTitleError('')
-      setTitle(e.target.value)
-    }
+    if (title !== undefined) setTitleError('')
+    setTitle(e.target.value)
   }
 
   // TipTap Editor Core
@@ -130,7 +127,7 @@ function Content ({ post }: Props) {
               onChange={handleTitle}
               value={title}
             />
-             {typeof titleError === 'string' && <p className='mt-1 text-wh-500'>{titleError}</p>}
+            {typeof titleError === 'string' && <p className='mt-1 text-wh-500'>{titleError}</p>}
           </div>
             )
           : (
@@ -144,7 +141,7 @@ function Content ({ post }: Props) {
 
         {/* Image */}
         <div className='relative w-auto mt-1 mb-16 h-96'>
-          {post?.image ?? (
+          {post?.image !== null && (
             <Image
               fill
               alt={title ?? 'Article Image'}
