@@ -20,16 +20,16 @@ function Articule ({
 }: Props) {
   const [role, setRole] = useState<string>('I am a helpful assistant.')
 
-  if (!editor) {
+  if (editor !== null) {
     return null
   }
 
   const postAiContent = async () => {
     editor
-      .chain()
-      .focus()
-      .setContent('Generating Ai Content. Please Wait...')
-      .run()
+      ?.chain()
+      ?.focus()
+      ?.setContent('Generating Ai Content. Please Wait...')
+      ?.run()
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
       method: 'POST',
@@ -74,13 +74,13 @@ function Articule ({
           : 'w-full max-w-full'}>
         {isEditable && (
           <>
-          <EditorMenuBar editor={editor} />
-          <hr className='border-1 mt-2 mb-5'/>
+            <EditorMenuBar editor={editor} />
+            <hr className='border-1 mt-2 mb-5' />
           </>
         )}
-          <EditorContent editor={editor} />
+        <EditorContent editor={editor} />
       </div>
-      {contentError && <p className='mt-1 text-wh-900'>{contentError}</p>}
+      {contentError !== '' && <p className='mt-1 text-wh-900'>{contentError}</p>}
     </article>
   )
 }

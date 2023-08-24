@@ -16,7 +16,7 @@ const getPost = async (id: string) => {
     where: { id }
   })
 
-  if (!post) {
+  if (post === null) {
     console.log(`Post with the Id ${id} not found`)
     return null
   }

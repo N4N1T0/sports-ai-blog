@@ -31,7 +31,7 @@ const CategoryAndEdit = ({
   const handleEnableEdit = () => {
     handleIsEditable(!isEditable)
     setTempTitle(title ?? '')
-    setTempContent(editor?.getHTML() || '')
+    setTempContent(editor?.getHTML() ?? 'ca')
   }
 
   const handleCancelEdit = () => {
@@ -42,23 +42,23 @@ const CategoryAndEdit = ({
 
   return (
     <div className='flex-between'>
-        <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold'>{post?.category}</h4>
-        <div className='mt-3'>
-          {isEditable
-            ? (
+      <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold'>{post?.category}</h4>
+      <div className='mt-3'>
+        {isEditable
+          ? (
             <div className='flex-between gap-2'>
               <button onClick={handleCancelEdit}>
-                <X className='h-6 w-6 text-accent-red'/>
+                <X className='h-6 w-6 text-accent-red' />
               </button>
             </div>
-              )
-            : (
+            )
+          : (
             <button onClick={handleEnableEdit}>
-                <PencilLine className='h-6 w-6 text-accent-red'/>
-              </button>
-              )}
-        </div>
+              <PencilLine className='h-6 w-6 text-accent-red' />
+            </button>
+            )}
       </div>
+    </div>
   )
 }
 

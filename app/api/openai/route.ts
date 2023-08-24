@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { Configuration, OpenAIApi, type CreateChatCompletionResponse } from 'openai'
-import { type AxiosResponse } from 'axios'
 
 const configuration = new Configuration({
   apiKey: process.env.OPEN_AI_API_KEY
@@ -20,7 +19,7 @@ export async function POST (request: Request) {
         },
         {
           role: 'system',
-          content: `${role || 'I am a helpful assistant'}. Write with html tags`
+          content: `${role ?? 'I am a helpful assistant'}. Write with html tags`
         }
       ]
     })

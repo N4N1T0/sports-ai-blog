@@ -5,7 +5,7 @@ let prismaInit: PrismaClient
 if (process.env.NODE_ENV === 'production') {
   prismaInit = new PrismaClient()
 } else {
-  if (!(global as any).prisma) {
+  if ((global as any).prisma === null || (global as any).prisma === undefined) {
     (global as any).prisma = new PrismaClient()
   }
   prismaInit = (global as any).prisma

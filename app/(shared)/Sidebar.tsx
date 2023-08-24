@@ -5,8 +5,8 @@ import SocialLinks from './SocialLinks'
 import { useTheme } from 'next-themes'
 import Subscribe from './Subscribe'
 import Image from 'next/image'
-import Ad2 from '../../../../../../../../../public/assets/ad-2.png'
-import AboutProfile from '../../../../../../../../../public/assets/about-profile.jpg'
+import Ad2 from '@/public/assets/ad-2.png'
+import AboutProfile from '@/public/assets/about-profile.jpg'
 
 const Sidebar = () => {
   const { theme } = useTheme()

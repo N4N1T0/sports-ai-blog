@@ -5,10 +5,9 @@ import { type FormattedPost } from 'app/type'
 import Image from 'next/image'
 import SocialLinks from '@/app/(shared)/SocialLinks'
 import { useTheme } from 'next-themes'
-import { useEditor, EditorContent, type Editor } from '@tiptap/react'
+import { useEditor, type Editor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
-import EditorMenuBar from './EditorMenuBar'
 import CategoryAndEdit from './CategoryAndEdit'
 import Articule from './Articule'
 
@@ -28,7 +27,7 @@ function Content ({ post }: Props) {
 
   // Date
   let formattedDate = ''
-  if (post?.createdAt) {
+  if (typeof post?.createdAt === 'string') {
     const date = new Date(post.createdAt)
     const options = { year: 'numeric', month: 'long', day: 'numeric' } as any
     formattedDate = date.toLocaleDateString('en-US', options)
@@ -44,8 +43,10 @@ function Content ({ post }: Props) {
     setContent((editor as Editor).getHTML())
   }
   const handleTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (title) setTitleError('')
-    setTitle(e.target.value)
+    if (title !== null && title !== undefined) {
+      setTitleError('')
+      setTitle(e.target.value)
+    }
   }
 
   // TipTap Editor Core
@@ -67,8 +68,8 @@ function Content ({ post }: Props) {
 
     // Validation
     if (title === '') setTitleError('This field is required')
-    if (editor?.isEmpty) setContentError('This field is required')
-    if (title === '' || editor?.isEmpty) return
+    if (editor?.isEmpty === true) setContentError('This field is required')
+    if (title === '' || editor?.isEmpty === true) return
 
     // Fetch to the Back
     const response = await fetch(
@@ -129,7 +130,7 @@ function Content ({ post }: Props) {
               onChange={handleTitle}
               value={title}
             />
-            {titleError && <p className='mt-1 text-wh-500'>{titleError}</p>}
+             {typeof titleError === 'string' && <p className='mt-1 text-wh-500'>{titleError}</p>}
           </div>
             )
           : (
@@ -143,11 +144,11 @@ function Content ({ post }: Props) {
 
         {/* Image */}
         <div className='relative w-auto mt-1 mb-16 h-96'>
-          {post?.image && (
+          {post?.image ?? (
             <Image
               fill
               alt={title ?? 'Article Image'}
-              src={post.image}
+              src={post?.image ?? ''}
               sizes="(max-width: 480px) 100vw,
                     (max-width: 768px) 85vw,
                     (max-width: 1060px) 75vw,

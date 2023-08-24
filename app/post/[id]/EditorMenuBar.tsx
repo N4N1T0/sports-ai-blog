@@ -6,7 +6,7 @@ interface Props {
 }
 
 const EditorMenuBar = ({ editor }: Props) => {
-  if (!editor) {
+  if (editor === null) {
     return null
   }
 
