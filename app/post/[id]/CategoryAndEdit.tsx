@@ -48,13 +48,13 @@ const CategoryAndEdit = ({
           ? (
             <div className='flex-between gap-2'>
               <button onClick={handleCancelEdit}>
-                <X className='h-6 w-6 text-accent-red' />
+                <X className='h-6 w-6 text-accent-orange' />
               </button>
             </div>
             )
           : (
             <button onClick={handleEnableEdit}>
-              <PencilLine className='h-6 w-6 text-accent-red' />
+              <PencilLine className='h-6 w-6 text-accent-orange' />
             </button>
             )}
       </div>

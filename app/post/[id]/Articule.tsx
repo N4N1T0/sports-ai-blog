@@ -50,13 +50,13 @@ function Articule ({
 
       {/* AI Generator */}
       {isEditable && (
-        <div className='border-2 rounded-md bg-wh-50 p-3 mb-3'>
-          <h4 className='m-0  p-0'>Generate AI Content</h4>
-          <p className='my-1 p-0 text-sm'>What type of writer do you want?</p>
+        <div className='border-2 border-accent-orange rounded-md bg-wh-50 dark:bg-wh-500 p-3 mb-3'>
+          <h4 className='dark:text-wh-10 p-0 m-0'>Generate AI Content</h4>
+          <p className='my-1 text-sm dark:text-wh-100'>What type of writer do you want?</p>
           <div className='flex-between gap-5'>
             <input
               type="text"
-              className='border-2 rounded-md bg-wh-50 px-3 py-1 w-full'
+              className='border-2 border-accent-orange rounded-md bg-wh-50 dark:bg-wh-500 dark:text-wh-50 px-3 py-1 w-full'
               placeholder='Role'
               onChange={(e) => { setRole(e.target.value) }}
               value={role}
@@ -70,7 +70,7 @@ function Articule ({
 
       <div className={
         isEditable
-          ? 'border-2 rounded-md bg-wh-50 p-3'
+          ? 'border-2 dark:bg-wh-500 border-accent-orange rounded-md bg-wh-50 p-3'
           : 'w-full max-w-full'}>
         {isEditable && (
           <>

@@ -11,7 +11,7 @@ const EditorMenuBar = ({ editor }: Props) => {
   }
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center dark:bg-wh-500">
       <div className="flex items-center gap-4">
         <button
           type="button"
@@ -20,8 +20,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           }
           className={
             editor.isActive('heading', { level: 1 })
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           H<span className="text-xs">1</span>
@@ -33,8 +33,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           }
           className={
             editor.isActive('heading', { level: 2 })
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           H<span className="text-xs">2</span>
@@ -46,8 +46,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           }
           className={
             editor.isActive('heading', { level: 3 })
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           H<span className="text-xs">3</span>
@@ -57,8 +57,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={
             editor.isActive('paragraph')
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           paragraph
@@ -69,8 +69,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           disabled={!editor.can().chain().focus().toggleBold().run()}
           className={
             editor.isActive('bold')
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           <b>B</b>
@@ -81,8 +81,8 @@ const EditorMenuBar = ({ editor }: Props) => {
           disabled={!editor.can().chain().focus().toggleItalic().run()}
           className={
             editor.isActive('italic')
-              ? 'bg-wh-500 text-wh-50 p-1 rounded-md'
-              : 'p-1'
+              ? 'bg-accent-orange text-wh-50 dark:text-wh-900 p-1 rounded-md'
+              : 'p-1 dark:text-wh-50'
           }
         >
           <i>I</i>
