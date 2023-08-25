@@ -117,10 +117,11 @@ function Content ({ post }: Props) {
           ? (
           <div>
             <textarea
-              className='border-2 rounded-md bg-wh-50 w-full'
+              className='border-2 border-accent-orange rounded-md bg-wh-50 w-full p-2 mt-2 dark:bg-wh-500 dark:text-wh-100'
               placeholder='Title'
               onChange={handleTitle}
               value={title}
+              rows={1}
             />
             {typeof titleError === 'string' && <p className='mt-1 text-wh-500'>{titleError}</p>}
           </div>
