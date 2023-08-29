@@ -29,10 +29,10 @@ const Navbar = () => {
         <div className='basis-full w-auto relative h-32'>
         <Image
           fill
-          sizes="(max-width: 480px) 100vw,
+          sizes='(max-width: 480px) 100vw,
                 (max-width: 768px) 75vw,
                 (max-width: 1060px) 50vw,
-                33vw"
+                33vw'
           alt='Advertisemnt 1'
           style={{ objectFit: 'cover' }}
           src={Ad1}

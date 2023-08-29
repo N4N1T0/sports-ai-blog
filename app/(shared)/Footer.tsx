@@ -15,17 +15,17 @@ const Footer = () => {
         <div className='mt-12 basis-1/4 sm:mt-0'>
           <h5 className='font-bold uppercase'>Links</h5>
           <ul>
-            <li className='my-3'><a href="#">Massa erci senetus</a></li>
-            <li className='my-3'><a href="#">Rassemi jikl oklirk</a></li>
-            <li><a href="#">Ullancormper vivinanm</a></li>
+            <li className='my-3'><a href='#'>Massa erci senetus</a></li>
+            <li className='my-3'><a href='#'>Rassemi jikl oklirk</a></li>
+            <li><a href='#'>Ullancormper vivinanm</a></li>
           </ul>
         </div>
         {/* Second Column */}
         <div className='mt-12 basis-1/4 sm:mt-0'>
           <h5 className='font-bold uppercase'>Contact us</h5>
           <ul>
-            <li className='my-3'><a href="#">+34 567 78 65 49</a></li>
-            <li className='my-3'><a href="#">orem, ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+            <li className='my-3'><a href='#'>+34 567 78 65 49</a></li>
+            <li className='my-3'><a href='#'>orem, ipsum dolor sit amet consectetur adipisicing elit.</a></li>
           </ul>
         </div>
       </div>

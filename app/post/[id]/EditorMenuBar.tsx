@@ -11,10 +11,10 @@ const EditorMenuBar = ({ editor }: Props) => {
   }
 
   return (
-    <div className="flex justify-between items-center dark:bg-wh-500">
-      <div className="flex items-center gap-4">
+    <div className='flex justify-between items-center dark:bg-wh-500'>
+      <div className='flex items-center gap-4'>
         <button
-          type="button"
+          type='button'
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
@@ -24,10 +24,10 @@ const EditorMenuBar = ({ editor }: Props) => {
               : 'p-1 dark:text-wh-50'
           }
         >
-          H<span className="text-xs">1</span>
+          H<span className='text-xs'>1</span>
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
@@ -37,10 +37,10 @@ const EditorMenuBar = ({ editor }: Props) => {
               : 'p-1 dark:text-wh-50'
           }
         >
-          H<span className="text-xs">2</span>
+          H<span className='text-xs'>2</span>
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 3 }).run()
           }
@@ -50,10 +50,10 @@ const EditorMenuBar = ({ editor }: Props) => {
               : 'p-1 dark:text-wh-50'
           }
         >
-          H<span className="text-xs">3</span>
+          H<span className='text-xs'>3</span>
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={
             editor.isActive('paragraph')
@@ -64,7 +64,7 @@ const EditorMenuBar = ({ editor }: Props) => {
           paragraph
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
           className={
@@ -76,7 +76,7 @@ const EditorMenuBar = ({ editor }: Props) => {
           <b>B</b>
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
           className={

@@ -35,12 +35,12 @@ const page = async ({ params }: Props) => {
   const post: FormattedPost | null = await getPost(id)
 
   return (
-    <main className="px-8 leading-5">
-    <div className="md:flex gap-7 mb-5">
-      <div className="basis-3/4">
+    <main className='px-8 leading-5'>
+    <div className='md:flex gap-7 mb-5'>
+      <div className='basis-3/4'>
         <Content post={post} />
       </div>
-      <div className="basis-1/4">
+      <div className='basis-1/4'>
         <Sidebar />
       </div>
     </div>

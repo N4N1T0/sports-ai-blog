@@ -142,10 +142,10 @@ function Content ({ post }: Props) {
               fill
               alt={title ?? 'Article Image'}
               src={post?.image ?? ''}
-              sizes="(max-width: 480px) 100vw,
+              sizes='(max-width: 480px) 100vw,
                     (max-width: 768px) 85vw,
                     (max-width: 1060px) 75vw,
-                    70vw"
+                    70vw'
               style={{ objectFit: 'cover' }}
               placeholder='blur'
               blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'

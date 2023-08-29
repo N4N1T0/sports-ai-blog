@@ -55,7 +55,7 @@ function Articule ({
           <p className='my-1 text-sm dark:text-wh-100'>What type of writer do you want?</p>
           <div className='flex-between gap-5'>
             <input
-              type="text"
+              type='text'
               className='border-2 border-accent-orange rounded-md bg-wh-50 dark:bg-wh-500 dark:text-wh-50 px-3 py-1 w-full'
               placeholder='Role'
               onChange={(e) => { setRole(e.target.value) }}
