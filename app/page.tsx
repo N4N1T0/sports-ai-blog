@@ -14,7 +14,7 @@ const getPosts = async () => {
   return posts
 }
 
-export default async function Home () {
+async function Home () {
   const posts = await getPosts()
 
   const formatPosts = () => {
@@ -45,22 +45,24 @@ export default async function Home () {
   const [trendingPosts, boxingPosts, mmaPosts, fitnessPosts, otherPosts] = formatPosts()
 
   return (
-    <main className="px-8 leading-5">
+    <main className='px-8 leading-5'>
       <Trending posts={trendingPosts}/>
-      <div className="md:flex gap-8 mb-5">
-        <div className="basis-3/4">
+      <div className='md:flex gap-8 mb-5'>
+        <div className='basis-3/4'>
           <Mma posts={mmaPosts} />
           <Boxing posts={boxingPosts} />
-          <OtherPosts title='Fitness' subTitle='Latest in Fitness' posts={fitnessPosts} />
-          <OtherPosts title='Other Posts' subTitle='A little bit of everything' posts={otherPosts} />
-          <div className="hidden md:block">
+          <OtherPosts title='Fitness' subTitle='Latest in Fitness' posts={fitnessPosts} withLine/>
+          <OtherPosts title='Other Posts' subTitle='A little bit of everything' posts={otherPosts} withLine/>
+          <div className='hidden md:block'>
             <Subscribe />
           </div>
         </div>
-        <div className="basis-1/4">
+        <div className='basis-1/4'>
           <Sidebar />
         </div>
       </div>
     </main>
   )
 }
+
+export default Home

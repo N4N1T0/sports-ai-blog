@@ -18,9 +18,9 @@ export default function RootLayout ({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang='es' suppressHydrationWarning>
       <body className={`${openSans.className} dark:bg-wh-900`}>
-      <ThemeProvider attribute="class" defaultTheme="light">
+      <ThemeProvider attribute='class' defaultTheme='light'>
         <Navbar />
         {children}
         <Footer />

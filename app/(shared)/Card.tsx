@@ -27,18 +27,18 @@ const Card = ({
   return (
     <div className={className}>
       <Link
-        className="basis-full hover:opacity-70"
+        className='basis-full hover:opacity-70'
         href={`/post/${id}`}
       >
         <div className={`relative w-auto mb-3 ${imageHeight}`}>
           <Image
             fill
-            alt="tech"
+            alt='tech'
             src={image}
-            sizes="(max-width: 480px) 100vw,
+            sizes='(max-width: 480px) 100vw,
                   (max-width: 768px) 75vw,
                   (max-width: 1060px) 50vw,
-                  33vw"
+                  33vw'
             style={{ objectFit: 'cover' }}
             placeholder='blur'
             blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
@@ -58,8 +58,8 @@ const Card = ({
         </Link>
 
         <div className={`${isSmallCard ? 'my-2' : 'flex my-3'} gap-3`}>
-          <h5 className="font-semibold text-xs">{author}</h5>
-          <h6 className="text-accent-orange text-xs">{formattedDate}</h6>
+          <h5 className='font-semibold text-xs'>{author}</h5>
+          <h6 className='text-accent-orange text-xs'>{formattedDate}</h6>
         </div>
         <p
           className={`text-wh-500 dark:text-wh-100 ${

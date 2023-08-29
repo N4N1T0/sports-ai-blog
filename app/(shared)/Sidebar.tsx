@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <section>
-      <h4 className='py-3 px-5 text-wh-900 text-xs font-bold text-center bg-accent-orange'>
+      <h4 className='py-3 px-5 text-wh-900 text-xs font-bold text-center bg-accent-orange mb-10 sm:mb-0'>
         Subscribe and Follow
       </h4>
       <div className='my-5 mx-5'>

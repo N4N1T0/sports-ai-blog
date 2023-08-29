@@ -17,10 +17,10 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
       <div className='z-0 relative w-full h-full'>
         <Image
           fill
-          sizes="(max-width: 480px) 100vw,
+          sizes='(max-width: 480px) 100vw,
                 (max-width: 768px) 75vw,
                 (max-width: 1060px) 50vw,
-                33vw"
+                33vw'
           alt={post?.title}
           style={{ objectFit: 'cover' }}
           src={post?.image}
@@ -47,7 +47,7 @@ const Trending = ({ posts }: TrendingProps) => {
       <div className='flex items-center gap-2'>
         <div className='uppercase bg-accent-orange py-2 px-8 text-wh-900 font-bold mr-2'>trending
         </div>
-        <p className='text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <p className='text-sm'>From Explosive Knockouts to Dominant Wins, Explore the Latest Trends Shaping the Pulse-Pounding World of Combat Athletics. Get Hooked on Action!</p>
       </div>
 
        {/* Grid Articules */}
@@ -57,7 +57,6 @@ const Trending = ({ posts }: TrendingProps) => {
          <TrendingCard className='col-span-1 row-span-1 bg-wh-500' post={posts[2]} />
          <TrendingCard className='col-span-1 row-span-1 bg-wh-500' post={posts[3]} />
       </div>
-      <p className='text-sm font-semibold'>From Explosive Knockouts to Dominant Wins, Explore the Latest Trends Shaping the Pulse-Pounding World of Combat Athletics. Get Hooked on Action!</p>
     </section>
   )
 }
