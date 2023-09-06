@@ -19,19 +19,21 @@ export default async function RootLayout ({
 }: {
   children: React.ReactNode
 }) {
-  const sesion = await getServerSession()
+  const session = await getServerSession()
+
+  // console.log(`the session is ${session === null ? 'null' : 'On'}`)
 
   return (
     <html lang='es' suppressHydrationWarning>
-      <SessionProvider session={sesion}>
-        <body className={`${openSans.className} dark:bg-wh-900`}>
+      <body className={`${openSans.className} dark:bg-wh-900`}>
         <ThemeProvider attribute='class' defaultTheme='light'>
-          <Navbar />
-          {children}
-          <Footer />
+          <SessionProvider session={session}>
+            <Navbar />
+            {children}
+            <Footer />
+          </SessionProvider>
         </ThemeProvider>
-          </body>
-      </SessionProvider>
+      </body>
     </html>
   )
 }

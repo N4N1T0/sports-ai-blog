@@ -1,31 +1,30 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-const handle = NextAuth({
+export const nextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'Password',
       credentials: {
         password: { label: 'Password', type: 'password' }
       },
-      authorize: async (credentials) => {
+      async authorize (credentials) {
         if (credentials.password === 'Nan0123') {
           const user = { id: 1, name: 'John' }
-          return await Promise.resolve(user)
+          return user
         }
-        return await Promise.resolve(null)
+        return null
       }
     })
   ],
   callbacks: {
-    async signIn (user, account, profile) {
-      return '/'
-    }
   },
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60
   }
-})
+}
+
+const handle = NextAuth(nextAuthOptions)
 
 export { handle as POST, handle as GET }

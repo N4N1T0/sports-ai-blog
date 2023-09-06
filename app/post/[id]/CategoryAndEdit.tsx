@@ -2,7 +2,7 @@ import { type FormattedPost } from 'app/type'
 import { type Editor } from '@tiptap/react'
 import React from 'react'
 import { X, PencilLine } from 'lucide-react'
-import { getCsrfToken } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 interface Props {
   isEditable: boolean
@@ -17,7 +17,7 @@ interface Props {
   post: FormattedPost | null
 }
 
-const CategoryAndEdit = ({
+const CategoryAndEdit = async ({
   isEditable,
   handleIsEditable,
   title,
@@ -41,12 +41,14 @@ const CategoryAndEdit = ({
     editor?.commands.setContent(tempContent ?? '')
   }
 
-  const token = getCsrfToken()
+  const { status } = useSession()
+
+  // console.log(`the status is ${status}`)
 
   return (
     <div className='flex-between'>
       <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold'>{post?.category}</h4>
-      {token !== null &&
+      {status === 'authenticated' &&
         <div className='mt-3'>
           {isEditable
             ? (
