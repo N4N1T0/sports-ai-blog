@@ -8,7 +8,6 @@ interface Credentials {
 const handle = NextAuth({
   providers: [
     CredentialsProvider({
-      // The name to display on the sign-in form (e.g., "Email")
       name: 'Password',
       credentials: {
         password: { label: 'Password', type: 'password' }
@@ -22,18 +21,14 @@ const handle = NextAuth({
       }
     })
   ],
-  // Redirect the user to the home page upon successful login
   callbacks: {
-    async signIn (user, account, profile) {
+    async signIn ({ user, account, profile, email, credentials }) {
       return '/'
     }
   },
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60
-  },
-  database: {
-    // Configure database options here
   }
 })
 
