@@ -4,6 +4,8 @@ import { Open_Sans } from 'next/font/google'
 import Navbar from 'app/(shared)/Navbar'
 import Footer from './(shared)/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { getServerSession } from 'next-auth'
+import SessionProvider from './(shared)/ServerProviders'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -12,20 +14,24 @@ export const metadata: Metadata = {
   description: 'A blog for sports enthusiast'
 }
 
-export default function RootLayout ({
+export default async function RootLayout ({
   children
 }: {
   children: React.ReactNode
 }) {
+  const sesion = await getServerSession()
+
   return (
     <html lang='es' suppressHydrationWarning>
-      <body className={`${openSans.className} dark:bg-wh-900`}>
-      <ThemeProvider attribute='class' defaultTheme='light'>
-        <Navbar />
-        {children}
-        <Footer />
-      </ThemeProvider>
-        </body>
+      <SessionProvider session={sesion}>
+        <body className={`${openSans.className} dark:bg-wh-900`}>
+        <ThemeProvider attribute='class' defaultTheme='light'>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
+          </body>
+      </SessionProvider>
     </html>
   )
 }
