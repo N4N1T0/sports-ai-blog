@@ -1,19 +1,14 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-interface Credentials {
-  password: string
-}
-
 const handle = NextAuth({
   providers: [
     CredentialsProvider({
-      // The name to display on the sign-in form (e.g., "Email")
       name: 'Password',
       credentials: {
         password: { label: 'Password', type: 'password' }
       },
-      authorize: async (credentials: Credentials) => {
+      authorize: async (credentials) => {
         if (credentials.password === 'Nan0123') {
           const user = { id: 1, name: 'John' }
           return await Promise.resolve(user)
@@ -22,7 +17,6 @@ const handle = NextAuth({
       }
     })
   ],
-  // Redirect the user to the home page upon successful login
   callbacks: {
     async signIn (user, account, profile) {
       return '/'
@@ -31,9 +25,6 @@ const handle = NextAuth({
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60
-  },
-  database: {
-    // Configure database options here
   }
 })
 
