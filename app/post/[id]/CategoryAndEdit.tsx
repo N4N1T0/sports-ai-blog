@@ -1,21 +1,7 @@
-import { type FormattedPost } from 'app/type'
-import { type Editor } from '@tiptap/react'
 import React from 'react'
 import { X, PencilLine } from 'lucide-react'
 import { useSession } from 'next-auth/react'
-
-interface Props {
-  isEditable: boolean
-  handleIsEditable: (isEditable: boolean) => void
-  title: string | undefined
-  setTitle: (title: string) => void
-  tempTitle: string | undefined
-  setTempTitle: (tempTitle: string) => void
-  tempContent: string | undefined
-  setTempContent: (tempContent: string) => void
-  editor: Editor | null
-  post: FormattedPost | null
-}
+import { type CategoryAndEditProps } from '@/lib/types'
 
 const CategoryAndEdit = async ({
   isEditable,
@@ -28,7 +14,7 @@ const CategoryAndEdit = async ({
   setTempContent,
   editor,
   post
-}: Props) => {
+}: CategoryAndEditProps) => {
   const handleEnableEdit = () => {
     handleIsEditable(!isEditable)
     setTempTitle(title ?? '')

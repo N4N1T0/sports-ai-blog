@@ -1,18 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { type FormattedPost } from 'app/type'
 import Image from 'next/image'
 import { useEditor, type Editor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import CategoryAndEdit from './CategoryAndEdit'
 import Articule from './Articule'
+import { type ContentProps } from '@/lib/types'
 
-interface Props {
-  post: FormattedPost | null
-}
-
-function Content ({ post }: Props) {
+function Content ({ post }: ContentProps) {
   // Use States
   const [isEditable, setIsEditable] = useState<boolean>(false)
   const [title, setTitle] = useState<string | undefined>(post?.title)

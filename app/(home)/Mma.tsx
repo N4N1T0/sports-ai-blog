@@ -1,12 +1,8 @@
 import React from 'react'
 import Card from 'app/(shared)/Card'
-import { type Post } from '@prisma/client'
+import { type SectionProps } from '@/lib/types'
 
-interface MmaProps {
-  posts: Post[]
-}
-
-const Mma = ({ posts }: MmaProps) => {
+const Mma = ({ posts }: SectionProps) => {
   return (
     <section>
       <hr className='border-1 border-black/10 dark:border-wh-10'/>

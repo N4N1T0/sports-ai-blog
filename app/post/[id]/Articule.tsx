@@ -1,15 +1,8 @@
 import React, { useState } from 'react'
-import { type Editor, EditorContent } from '@tiptap/react'
+import { EditorContent } from '@tiptap/react'
 import { Rocket } from 'lucide-react'
 import EditorMenuBar from './EditorMenuBar'
-
-interface Props {
-  contentError: string
-  editor: Editor | null
-  isEditable: boolean
-  setContent: (content: string) => void
-  title: string | undefined
-}
+import { type ArticuleProps } from '@/lib/types'
 
 function Articule ({
   contentError,
@@ -17,7 +10,7 @@ function Articule ({
   isEditable,
   setContent,
   title
-}: Props) {
+}: ArticuleProps) {
   const [role, setRole] = useState<string>('I am a helpful assistant.')
 
   if (editor === null) {

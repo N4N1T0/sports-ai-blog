@@ -1,13 +1,6 @@
 import React from 'react'
 import Card from './Card'
-import { type Post } from '@prisma/client'
-
-interface FitnessProps {
-  posts: Post[]
-  title: string
-  subTitle: string
-  withLine?: boolean
-}
+import { type FitnessProps } from '@/lib/types'
 
 const OtherPosts = ({ posts, title, subTitle, withLine = false }: FitnessProps) => {
   return (

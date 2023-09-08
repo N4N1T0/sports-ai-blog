@@ -1,12 +1,8 @@
 import React from 'react'
 import Card from 'app/(shared)/Card'
-import { type Post } from '@prisma/client'
+import { type SectionProps } from '@/lib/types'
 
-interface BoxingProps {
-  posts: Post[]
-}
-
-const Boxing = ({ posts }: BoxingProps) => {
+const Boxing = ({ posts }: SectionProps) => {
   return (
     <section className='mt-10'>
       <hr className='border-1 border-black/10 dark:border-wh-10'/>

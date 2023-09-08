@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { type Post } from '@prisma/client'
-
-interface TrendingCardsProps {
-  className?: string
-  post: Post
-}
+import { type TrendingCardsProps, type SectionProps } from '@/lib/types'
 
 const TrendingCard = ({ className, post }: TrendingCardsProps) => {
   return (
@@ -37,11 +32,7 @@ const TrendingCard = ({ className, post }: TrendingCardsProps) => {
   )
 }
 
-interface TrendingProps {
-  posts: Post[]
-}
-
-const Trending = ({ posts }: TrendingProps) => {
+const Trending = ({ posts }: SectionProps) => {
   return (
     <section className='pt-3 pb-8 space-y-4'>
       <div className='flex items-center gap-2'>

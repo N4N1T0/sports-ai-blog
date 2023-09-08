@@ -1,11 +1,8 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '../../client'
+import { type PostIdParams } from '@/lib/types'
 
-interface Params {
-  params: { id: string }
-}
-
-export async function PATCH (request: Request, { params }: Params) {
+export async function PATCH (request: Request, { params }: PostIdParams) {
   try {
     const { id } = params
     const { title, content } = await request.json()

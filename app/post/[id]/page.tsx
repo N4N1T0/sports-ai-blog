@@ -4,12 +4,9 @@ import { type Post as PostType } from '@prisma/client'
 import { type FormattedPost } from 'app/type'
 import Content from './Content'
 import Sidebar from '@/app/(shared)/Sidebar'
+import { type PostPageProps } from '@/lib/types'
 
 export const revalidate = 120
-
-interface Props {
-  params: { id: string }
-}
 
 const getPost = async (id: string) => {
   const post: PostType | null = await prisma.post.findUnique({
@@ -30,7 +27,7 @@ const getPost = async (id: string) => {
   return formattedPost
 }
 
-const page = async ({ params }: Props) => {
+const page = async ({ params }: PostPageProps) => {
   const { id } = params
   const post: FormattedPost | null = await getPost(id)
 

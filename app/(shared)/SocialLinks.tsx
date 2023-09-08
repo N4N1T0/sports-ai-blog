@@ -5,12 +5,9 @@ import Facebook from '@/public/assets/social_facebook.png'
 import Instagram from '@/public/assets/social_instagram.png'
 import Google from '@/public/assets/social_google.png'
 import Discord from '@/public/assets/social_discord.png'
+import { type SocialLinksProps } from '@/lib/types'
 
-interface Props {
-  isDark?: string
-}
-
-const SocialLinks = ({ isDark = 'light' }: Props) => {
+const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
   return (
     <div className='flex-between gap-3'>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>

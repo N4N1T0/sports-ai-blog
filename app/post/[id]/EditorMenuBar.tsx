@@ -1,11 +1,7 @@
-import { type Editor } from '@tiptap/react'
+import { type EditorMenuBarProps } from '@/lib/types'
 import React from 'react'
 
-interface Props {
-  editor: Editor | null
-}
-
-const EditorMenuBar = ({ editor }: Props) => {
+const EditorMenuBar = ({ editor }: EditorMenuBarProps) => {
   if (editor === null) {
     return null
   }

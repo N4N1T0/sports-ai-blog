@@ -1,15 +1,7 @@
-import { type Post } from '@prisma/client'
+import { type CardProps } from '@/lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-interface Props {
-  className?: string
-  post: Post
-  imageHeight: string
-  isSmallCard?: boolean
-  isLongForm?: boolean
-}
 
 const Card = ({
   className,
@@ -17,7 +9,7 @@ const Card = ({
   post,
   isSmallCard = false,
   isLongForm = false
-}: Props) => {
+}: CardProps) => {
   const { id, title, author, createdAt, image, snippet } = post
 
   const date = new Date(createdAt)
