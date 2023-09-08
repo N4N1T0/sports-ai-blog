@@ -1,5 +1,6 @@
 'use client'
 
+import { redirect } from 'next/navigation'
 import { useEffect } from 'react'
 
 interface ErrorProps {
@@ -18,7 +19,7 @@ export default function Error ({ error, reset }: ErrorProps) {
       <h5 className='text-bold text-xl'>Articule Not Found!</h5>
       <div className='flex gap-10 items-center'>
         <button onClick={() => { reset() }}>Try again</button>
-        <button onClick={() => { reset() }}>Return Home</button>
+        <button onClick={() => { redirect('/') }}>Return Home</button>
       </div>
     </div>
   )
