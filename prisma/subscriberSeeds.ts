@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma: any = new PrismaClient()
+import { prisma } from '@/app/api/client'
 
 const subscribers = [
   {
