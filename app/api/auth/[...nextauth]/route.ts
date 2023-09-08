@@ -8,12 +8,13 @@ const handle = NextAuth({
       credentials: {
         password: { label: 'Password', type: 'password' }
       },
-      async authorize (credentials, req) {
-        if (credentials?.password === 'Nan0123') {
-          const user = { id: 1, name: 'John' }
+      async authorize (credentials) {
+        const user = { id: '1', name: 'Admin', password: 'Nan0123' }
+        if (user.password === credentials?.password) {
           return user
+        } else {
+          return null
         }
-        return null
       }
     })
   ],
