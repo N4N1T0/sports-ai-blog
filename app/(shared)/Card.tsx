@@ -50,7 +50,7 @@ const Card = ({
         </Link>
 
         <div className={`${isSmallCard ? 'my-2' : 'flex my-3'} gap-3`}>
-          <h5 className='font-semibold text-xs'>{author}</h5>
+          <h5 className='font-semibold text-xs'>{author?.name}</h5>
           <h6 className='text-accent-orange text-xs'>{formattedDate}</h6>
         </div>
         <p

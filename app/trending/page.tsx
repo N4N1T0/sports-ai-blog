@@ -9,6 +9,9 @@ const getPosts = async () => {
     take: 8,
     orderBy: {
       createdAt: 'asc'
+    },
+    include: {
+      author: true
     }
   })
   return posts

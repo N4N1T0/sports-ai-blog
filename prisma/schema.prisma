@@ -17,13 +17,23 @@ model Post {
   title     String
   category  String
   content   String
-  author    String
   image     String
   snippet   String
+  author    Author?  @relation(fields: [authorId], references: [id])
+  authorId  String?  @db.ObjectId
 }
 
-model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  user     String
-  password String
+model Subscriber {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  email         String   @unique
+  createdAt     DateTime @default(now())
+  verifiedEmail Boolean
+}
+
+model Author {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  bio   String
+  image String
+  posts Post[]
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from './Card'
-import { type FitnessProps } from '@/lib/types'
+import { type OtherProps } from '@/lib/types'
 
-const OtherPosts = ({ posts, title, subTitle, withLine = false }: FitnessProps) => {
+const OtherPosts = ({ posts, title, subTitle, withLine = false }: OtherProps) => {
   return (
     <section className='pt-1 mb-10'>
       {withLine && <hr className='border-1 border-black/10 dark:border-wh-10 mr-2'/>}

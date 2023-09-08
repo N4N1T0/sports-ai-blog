@@ -29,8 +29,6 @@ const CategoryAndEdit = async ({
 
   const { status } = useSession()
 
-  // console.log(`the status is ${status}`)
-
   return (
     <div className='flex-between'>
       <h4 className='bg-accent-orange py-2 px-4 text-wh-900 text-sm font-bold'>{post?.category}</h4>
