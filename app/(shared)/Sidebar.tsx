@@ -32,7 +32,7 @@ const Sidebar = ({ name, image, bio }: Author) => {
       <h4 className='bg-accent-orange py-3 px-5 text-wh-900 text-xs font-bold text-center'>
         About the Blog
       </h4>
-      {name === ''
+      {name === undefined
         ? (
         <>
           <ProfileCard
@@ -40,6 +40,7 @@ const Sidebar = ({ name, image, bio }: Author) => {
             bio='Striking Coach with more than 10 years of experience'
             image='https://res.cloudinary.com/dkvoatzeq/image/upload/v1694183461/ai-sports-blog/1_rthkte.jpg'
           />
+          <hr className='border-1 border-black/10 dark:border-wh-10 mt-4'/>
           <ProfileCard
             name='Dayana "Good Day" Abuin'
             bio='Taekwondo Black Belt with more than 5 years of sports journalism'
@@ -65,7 +66,8 @@ const ProfileCard = ({ name, image, bio }: Author) => {
         <Image
           alt='about-profile'
           src={image ?? ''}
-          width={100}
+          width={500}
+          height={500}
           style={{ width: '500px', height: '250px', objectFit: 'cover' }}
           placeholder='blur'
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
