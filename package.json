@@ -2,7 +2,7 @@
   "name": "ai-sports-blog",
   "version": "1.1.0",
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/userSeeds.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/postSeeds.ts"
   },
   "private": true,
   "scripts": {
