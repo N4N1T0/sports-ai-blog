@@ -1,16 +1,17 @@
 import React from 'react'
 import { prisma } from '@/app/api/client'
-import { type Post as PostType } from '@prisma/client'
-import { type FormattedPost } from 'app/type'
+import { type PostType, type FormattedPost, type PostPageProps } from '@/lib/types'
 import Content from './Content'
 import Sidebar from '@/app/(shared)/Sidebar'
-import { type PostPageProps } from '@/lib/types'
 
 export const revalidate = 120
 
 const getPost = async (id: string) => {
   const post: PostType | null = await prisma.post.findUnique({
-    where: { id }
+    where: { id },
+    include: {
+      author: true
+    }
   })
 
   if (post === null) {
@@ -38,7 +39,11 @@ const page = async ({ params }: PostPageProps) => {
         <Content post={post} />
       </div>
       <div className='basis-1/4'>
-        <Sidebar />
+        <Sidebar
+          name={post?.author?.name}
+          bio={post?.author?.bio}
+          image={post?.author?.image}
+       />
       </div>
     </div>
   </main>

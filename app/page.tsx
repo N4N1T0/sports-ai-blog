@@ -5,12 +5,16 @@ import OtherPosts from '@/app/(shared)/OtherPosts'
 import Subscribe from '@/app/(shared)/Subscribe'
 import Sidebar from 'app/(shared)/Sidebar'
 import { prisma } from 'app/api/client'
-import { type Post } from '@prisma/client'
+import { type PostType } from '@/lib/types'
 
 export const revalidate = 120
 
 const getPosts = async () => {
-  const posts = await prisma.post.findMany()
+  const posts = await prisma.post.findMany({
+    include: {
+      author: true
+    }
+  })
   return posts
 }
 
@@ -18,13 +22,13 @@ async function Home () {
   const posts = await getPosts()
 
   const formatPosts = () => {
-    const trendingPosts: Post[] = []
-    const boxingPosts: Post[] = []
-    const mmaPosts: Post[] = []
-    const fitnessPosts: Post[] = []
-    const otherPosts: Post[] = []
+    const trendingPosts: PostType[] = []
+    const boxingPosts: PostType[] = []
+    const mmaPosts: PostType[] = []
+    const fitnessPosts: PostType[] = []
+    const otherPosts: PostType[] = []
 
-    posts.forEach((post: Post, i: number) => {
+    posts.forEach((post: PostType, i: number) => {
       if (i < 4) {
         trendingPosts.push(post)
       }

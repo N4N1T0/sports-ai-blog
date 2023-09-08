@@ -11,17 +11,16 @@ datasource db {
 }
 
 model Post {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  title      String
-  category   String
-  content    String
-  image      String
-  snippet    String
-  authorName String
-  author     Author?  @relation(fields: [authorId], references: [id])
-  authorId   String?  @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  category  String
+  content   String
+  image     String
+  snippet   String
+  author    Author?  @relation(fields: [authorId], references: [id])
+  authorId  String?  @db.ObjectId
 }
 
 model Subscriber {

@@ -126,7 +126,7 @@ function Content ({ post }: ContentProps) {
           <h3 className='font-bold text-3xl mt-2 dark:text-wh-50'>{title}</h3>
             )}
         <div className='flex items-center gap-5'>
-          <h5 className='font-semibold text-xs dark:text-wh-100'>By {post?.author}</h5>
+          <h5 className='font-semibold text-xs dark:text-wh-100'>By {post?.author?.name}</h5>
           <h6 className='text-wh-300 text-sm'>{formattedDate}</h6>
         </div>
         </>

@@ -21,8 +21,6 @@ export default async function RootLayout ({
 }) {
   const session = await getServerSession()
 
-  // console.log(`the session is ${session === null ? 'null' : 'On'}`)
-
   return (
     <html lang='es' suppressHydrationWarning>
       <body className={`${openSans.className} dark:bg-wh-900`}>

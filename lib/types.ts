@@ -1,6 +1,4 @@
-import { type Post } from '@prisma/client'
 import { type Editor } from '@tiptap/react'
-import { type FormattedPost } from 'app/type'
 
 export interface User {
   id: number
@@ -8,24 +6,24 @@ export interface User {
 }
 
 export interface SectionProps {
-  posts: Post[]
+  posts: PostType[]
 }
 
 export interface TrendingCardsProps {
   className?: string
-  post: Post
+  post: PostType
 }
 
 export interface CardProps {
   className?: string
-  post: Post
+  post: PostType
   imageHeight: string
   isSmallCard?: boolean
   isLongForm?: boolean
 }
 
-export interface FitnessProps {
-  posts: Post[]
+export interface OtherProps {
+  posts: PostType[]
   title: string
   subTitle: string
   withLine?: boolean
@@ -70,4 +68,37 @@ export interface EditorMenuBarProps {
 
 export interface PostPageProps {
   params: { id: string }
+}
+
+export interface PostType {
+  id: string
+  title: string
+  category: string
+  content: string
+  createdAt: Date
+  updatedAt: Date
+  authorId: string | null
+  author: Author | null
+  image: string
+  snippet: string
+}
+
+export interface FormattedPost {
+  id: string
+  createdAt: string
+  updatedAt: string
+  title: string
+  category: string
+  content: string
+  authorId: string | null
+  author: Author | null
+  image: string
+  snippet: string
+}
+
+export interface Author {
+  id?: string | undefined
+  name?: string | undefined
+  bio?: string | undefined
+  image?: string | undefined
 }
