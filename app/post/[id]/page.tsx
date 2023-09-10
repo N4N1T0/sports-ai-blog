@@ -43,6 +43,7 @@ const page = async ({ params }: PostPageProps) => {
           name={post?.author?.name}
           bio={post?.author?.bio}
           image={post?.author?.image}
+          page='post'
        />
       </div>
     </div>

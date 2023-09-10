@@ -27,7 +27,7 @@ async function TrendingPage () {
           <OtherPosts title='Trending' subTitle='All the post currently being Trending in the web and the blog' posts={posts} />
         </div>
         <div className='basis-1/4 md:mt-8 mt-2'>
-          <Sidebar />
+          <Sidebar page='intro' />
         </div>
       </div>
     </main>

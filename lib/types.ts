@@ -11,7 +11,8 @@ export interface SectionProps {
 
 export interface TrendingCardsProps {
   className?: string
-  post: PostType
+  post: PostType | PostTypeNonAuthor
+  withTitle?: boolean
 }
 
 export interface CardProps {
@@ -83,17 +84,11 @@ export interface PostType {
   snippet: string
 }
 
-export interface FormattedPost {
-  id: string
+export interface PostTypeNonAuthor extends Omit<PostType, 'authorId' | 'author'> {}
+
+export interface FormattedPost extends Omit<PostType, 'createdAt' | 'updatedAt' > {
   createdAt: string
   updatedAt: string
-  title: string
-  category: string
-  content: string
-  authorId: string | null
-  author: Author | null
-  image: string
-  snippet: string
 }
 
 export interface Author {
@@ -101,4 +96,19 @@ export interface Author {
   name?: string | undefined
   bio?: string | undefined
   image?: string | undefined
+}
+
+export interface SidebarProps extends Author {
+  page: string
+}
+
+export interface AuthorCardProps {
+  author: Author
+  posts: PostTypeNonAuthor[]
+}
+
+export interface AboutInfoProps {
+  title: string
+  subtitle?: string
+  text: string
 }
