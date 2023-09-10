@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import Navbar from 'app/(shared)/Navbar'
 import Footer from './(shared)/Footer'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/app/(shared)/theme-provider'
 import { getServerSession } from 'next-auth'
 import SessionProvider from './(shared)/ServerProviders'
 
