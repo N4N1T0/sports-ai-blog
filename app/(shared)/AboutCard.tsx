@@ -4,7 +4,7 @@ import { TrendingCard } from './TrendingCards'
 
 function AboutCard ({ author, posts }: AuthorCardProps) {
   return (
-    <div className='sm:grid gap-4 grid-cols-5 grid-rows-2 sm:h-[300px] mt-4 mb-20'>
+    <div className='sm:grid gap-4 grid-cols-5 grid-rows-2 sm:h-[300px] mt-16'>
       <div className='relative col-span-2 row-span-2'>
         <Image
           fill
@@ -12,14 +12,14 @@ function AboutCard ({ author, posts }: AuthorCardProps) {
           alt={author.name ?? 'Author Image'}
           style={{ objectFit: 'cover' }}
           placeholder='blur'
-                blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8+R8AApcByuTu2nIAAAAASUVORK5CYII'
         />
       </div>
       <div className='col-span-3 row-span-1'>
-        <div className='font-bold text-2xl mb-2 bg-accent-orange text-wh-900 px-3 py-1 inline-block w-auto'>
+        <div className='font-bold text-2xl mb-2'>
           {author.name}
         </div>
-        <div className='text-md'>
+        <div className='text-md mt-3 leading-6'>
           {author.bio}
         </div>
       </div>

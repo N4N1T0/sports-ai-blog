@@ -98,7 +98,17 @@ export interface Author {
   image?: string | undefined
 }
 
+export interface SidebarProps extends Author {
+  page: string
+}
+
 export interface AuthorCardProps {
   author: Author
   posts: PostTypeNonAuthor[]
+}
+
+export interface AboutInfoProps {
+  title: string
+  subtitle?: string
+  text: string
 }

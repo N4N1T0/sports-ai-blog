@@ -62,7 +62,7 @@ async function Home () {
           </div>
         </div>
         <div className='basis-1/4'>
-          <Sidebar />
+          <Sidebar page='intro'/>
         </div>
       </div>
     </main>
