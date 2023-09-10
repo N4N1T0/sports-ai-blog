@@ -18,6 +18,7 @@ const Card = ({
 
   return (
     <div className={className}>
+      {/* Image Section */}
       <Link
         className='basis-full hover:opacity-70'
         href={`/post/${id}`}
@@ -37,6 +38,8 @@ const Card = ({
           />
         </div>
       </Link>
+
+      {/* Text Section */}
       <div className={`${isSmallCard ? 'ml-5' : ''} basis-full`}>
         <Link href={`/post/${id}`}>
           <h4

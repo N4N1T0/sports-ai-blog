@@ -1,4 +1,3 @@
-import React from 'react'
 import Card from 'app/(shared)/Card'
 import { type SectionProps } from '@/lib/types'
 

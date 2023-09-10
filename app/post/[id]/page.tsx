@@ -1,4 +1,3 @@
-import React from 'react'
 import { prisma } from '@/app/api/client'
 import { type PostType, type FormattedPost, type PostPageProps } from '@/lib/types'
 import Content from './Content'

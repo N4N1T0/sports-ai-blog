@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+
 import Image from 'next/image'
 import Twitter from '@/public/assets/social_twitter.png'
 import Facebook from '@/public/assets/social_facebook.png'
@@ -6,8 +7,10 @@ import Instagram from '@/public/assets/social_instagram.png'
 import Google from '@/public/assets/social_google.png'
 import Discord from '@/public/assets/social_discord.png'
 import { type SocialLinksProps } from '@/lib/types'
+import { useTheme } from 'next-themes'
 
-const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinksProps) => {
+const SocialLinks = ({ articleTitle, articleUrl, isDark }: SocialLinksProps) => {
+  const theme = isDark ?? useTheme().theme ?? 'light'
   const canShare = articleTitle !== undefined && articleUrl !== undefined
 
   const encodedTitle = canShare ? encodeURIComponent(articleTitle) : ''
@@ -23,7 +26,7 @@ const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinks
           src={Twitter}
           width={20}
           height={20}
-          className={`${isDark === 'light' ? 'brightness-0' : ''} `}
+          className={`${theme === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
       </div>
@@ -35,7 +38,7 @@ const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinks
           src={Facebook}
           width={20}
           height={20}
-          className={`${isDark === 'light' ? 'brightness-0' : ''} `}
+          className={`${theme === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
       </div>
@@ -47,7 +50,7 @@ const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinks
           src={Instagram}
           width={20}
           height={20}
-          className={`${isDark === 'light' ? 'brightness-0' : ''} `}
+          className={`${theme === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
       </div>
@@ -59,7 +62,7 @@ const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinks
           src={Google}
           width={20}
           height={20}
-          className={`${isDark === 'light' ? 'brightness-0' : ''} `}
+          className={`${theme === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
       </div>
@@ -71,7 +74,7 @@ const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinks
           src={Discord}
           width={20}
           height={20}
-          className={`${isDark === 'light' ? 'brightness-0' : ''} `}
+          className={`${theme === 'light' ? 'brightness-0' : ''} `}
           />
         </a>
       </div>

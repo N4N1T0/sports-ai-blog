@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import { ModeToggle } from './Theme'
 import SocialLinks from './SocialLinks'
 import Ad1 from '@/public/assets/ad-1.jpg'
@@ -12,6 +11,8 @@ const Navbar = () => {
         <div className='hidden sm:block '>
           <SocialLinks isDark='dark'/>
         </div>
+
+        {/* Nav Links */}
         <div className='flex-between gap-10 text-lg'>
           <Link href='/' className='hover:text-accent-orange transition-colors duration-200'>Home</Link>
           <Link href='/trending' className='hover:text-accent-orange transition-colors duration-200'>Trending</Link>
@@ -21,6 +22,8 @@ const Navbar = () => {
           <ModeToggle />
         </div>
       </nav>
+
+      {/* Header Ad and Name */}
       <div className='flex-between gap-8 mt-5 mb-4 mx-10'>
         <div className='basis-2/3 md:mt-3'>
           <h1 className='font-bold text-3xl uppercase md:text-6xl'>Striking Gold</h1>

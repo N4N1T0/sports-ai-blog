@@ -1,16 +1,11 @@
-'use client'
-
-import React from 'react'
 import SocialLinks from './SocialLinks'
-import { useTheme } from 'next-themes'
 import Subscribe from './Subscribe'
 import Image from 'next/image'
 import Ad2 from '@/public/assets/ad-2.png'
 import { type SidebarProps } from '@/lib/types'
 
 const Sidebar = ({ name, image, bio, page }: SidebarProps) => {
-  const { theme } = useTheme()
-
+  // Generating content acording page props
   const generatingContent = (page: string) => {
     switch (page) {
       case 'intro':
@@ -57,7 +52,7 @@ const Sidebar = ({ name, image, bio, page }: SidebarProps) => {
         Subscribe and Follow
       </h4>
       <div className='my-5 mx-5'>
-        <SocialLinks isDark={theme} />
+        <SocialLinks />
       </div>
       <Subscribe />
       <Image
