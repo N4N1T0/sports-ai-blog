@@ -1,6 +1,6 @@
 import { type AuthorCardProps } from '@/lib/types'
 import Image from 'next/image'
-import { TrendingCard } from './TrendingCards'
+import { TrendingCard } from '../(shared)/TrendingCards'
 
 function AboutCard ({ author, posts }: AuthorCardProps) {
   return (

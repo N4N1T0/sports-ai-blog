@@ -2,7 +2,6 @@ import Trending from 'app/(home)/Trending'
 import Mma from 'app/(home)/Mma'
 import Boxing from 'app/(home)/Boxing'
 import OtherPosts from '@/app/(shared)/OtherPosts'
-import Subscribe from '@/app/(shared)/Subscribe'
 import Sidebar from 'app/(shared)/Sidebar'
 import { prisma } from 'app/api/client'
 import { type PostType } from '@/lib/types'
@@ -57,9 +56,6 @@ async function Home () {
           <Boxing posts={boxingPosts} />
           <OtherPosts title='Fitness' subTitle='Latest in Fitness' posts={fitnessPosts} withLine/>
           <OtherPosts title='Other Posts' subTitle='A little bit of everything' posts={otherPosts} withLine/>
-          <div className='hidden md:block'>
-            <Subscribe />
-          </div>
         </div>
         <div className='basis-1/4'>
           <Sidebar page='intro'/>
