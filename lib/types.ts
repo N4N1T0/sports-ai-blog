@@ -32,6 +32,8 @@ export interface OtherProps {
 
 export interface SocialLinksProps {
   isDark?: string
+  articleTitle?: any
+  articleUrl?: any
 }
 
 export interface PostIdParams {

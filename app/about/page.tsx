@@ -1,5 +1,5 @@
-import AboutCard from '../(shared)/AboutCard'
-import AboutInfo from '../(shared)/AboutInfo'
+import AboutCard from './AboutCard'
+import AboutInfo from './AboutInfo'
 import Sidebar from '../(shared)/Sidebar'
 import { prisma } from 'app/api/client'
 

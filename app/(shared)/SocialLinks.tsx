@@ -7,11 +7,18 @@ import Google from '@/public/assets/social_google.png'
 import Discord from '@/public/assets/social_discord.png'
 import { type SocialLinksProps } from '@/lib/types'
 
-const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
+const SocialLinks = ({ isDark = 'light', articleTitle, articleUrl }: SocialLinksProps) => {
+  const canShare = articleTitle !== undefined && articleUrl !== undefined
+
+  const encodedTitle = canShare ? encodeURIComponent(articleTitle) : ''
+  const encodedUrl = canShare ? encodeURIComponent(articleUrl) : ''
+
   return (
     <div className='flex-between gap-3'>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
-        <a href='https://twitter.com' target='_blank' rel='noreferrer'>
+        <a href={canShare ? `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}` : 'https://twitter.com'}
+          target='_blank'
+          rel='noreferrer'>
           <Image alt='twitter icon'
           src={Twitter}
           width={20}
@@ -21,7 +28,9 @@ const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
         </a>
       </div>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
-        <a href='https://facebook.com' target='_blank' rel='noreferrer'>
+        <a href={canShare ? `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` : 'https://www.facebook.com'}
+          target='_blank'
+          rel='noreferrer'>
           <Image alt='Facebook icon'
           src={Facebook}
           width={20}
@@ -31,7 +40,9 @@ const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
         </a>
       </div>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
-        <a href='https://instagram.com' target='_blank' rel='noreferrer'>
+        <a href={canShare ? `https://www.instagram.com/sharer.php?u=${encodedUrl}` : 'https://www.instagram.com'}
+          target='_blank'
+          rel='noreferrer'>
           <Image alt='instagram icon'
           src={Instagram}
           width={20}
@@ -41,7 +52,9 @@ const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
         </a>
       </div>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
-        <a href='https://googlw.com' target='_blank' rel='noreferrer'>
+        <a href={canShare ? 'https://discord.com' : 'https://discord.com'}
+          target='_blank'
+          rel='noreferrer'>
           <Image alt='google icon'
           src={Google}
           width={20}
@@ -51,7 +64,9 @@ const SocialLinks = ({ isDark = 'light' }: SocialLinksProps) => {
         </a>
       </div>
       <div className='hover:bg-accent-orange p-3 rounded-md transition-colors duration-200'>
-        <a href='https://discord.com' target='_blank' rel='noreferrer'>
+        <a href={canShare ? `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` : 'https://www.facebook.com'}
+          target='_blank'
+          rel='noreferrer'>
           <Image alt='discord icon'
           src={Discord}
           width={20}
