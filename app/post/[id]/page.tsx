@@ -4,6 +4,25 @@ import Content from './Content'
 import Sidebar from '@/app/(shared)/Sidebar'
 import SocialLinks from '@/app/(shared)/SocialLinks'
 import { PostNotFoundError } from '@/lib/errors'
+import { type Metadata, type ResolvingMetadata } from 'next'
+
+interface Props {
+  params: { id: string }
+  searchParams: Record<string, string | string[] | undefined>
+}
+
+export async function generateMetadata (
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const post: FormattedPost | null = await getPost(params.id)
+  const { title, snippet } = post
+
+  return {
+    title,
+    description: snippet
+  }
+}
 
 export const revalidate = 120
 
