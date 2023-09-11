@@ -5,10 +5,7 @@ import OtherPosts from '@/app/(shared)/OtherPosts'
 import Sidebar from 'app/(shared)/Sidebar'
 import { prisma } from 'app/api/client'
 import { type PostType } from '@/lib/types'
-import type { Metadata } from 'next'
-import { HomeMetadata } from './seo'
 
-export const metadata: Metadata = HomeMetadata
 export const revalidate = 120
 
 const getPosts = async () => {

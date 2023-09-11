@@ -6,13 +6,11 @@ import Footer from './(shared)/Footer'
 import { ThemeProvider } from '@/app/(shared)/theme-provider'
 import { getServerSession } from 'next-auth'
 import SessionProvider from './(shared)/ServerProviders'
+import { HomeMetadata } from './seo'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Striking Gold',
-  description: 'A blog for sports enthusiast'
-}
+export const metadata: Metadata = HomeMetadata
 
 export default async function RootLayout ({
   children
