@@ -12,7 +12,8 @@ export async function POST (request: Request) {
     const { title, role } = await request.json()
 
     const aiResponse = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
+      model: 'davinci',
+      temperature: 0.4,
       messages: [
         {
           role: 'user',

@@ -1,6 +1,11 @@
 import { prisma } from 'app/api/client'
 import OtherPosts from '../(shared)/OtherPosts'
 import Sidebar from 'app/(shared)/Sidebar'
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Trending'
+}
 
 export const revalidate = 120
 
