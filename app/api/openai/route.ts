@@ -1,3 +1,4 @@
+import { AIApiError } from '@/lib/errors'
 import { NextResponse } from 'next/server'
 import { Configuration, OpenAIApi } from 'openai'
 
@@ -26,7 +27,6 @@ export async function POST (request: Request) {
 
     return NextResponse.json({ content: aiResponse.data.choices[0].message?.content }, { status: 200 })
   } catch (error) {
-    console.error('request error:', error)
-    throw new Error('Error updating post')
+    throw new AIApiError('Error updating post')
   }
 }

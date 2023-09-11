@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '../client'
+import { SubscriberError } from '@/lib/errors'
 
 export async function POST (request: Request) {
   try {
@@ -14,7 +15,6 @@ export async function POST (request: Request) {
 
     return NextResponse.json({ content: user }, { status: 200 })
   } catch (error) {
-    console.error('request error:', error)
-    throw new Error('Error Creating Subscriber')
+    throw new SubscriberError('Error Creating Subscriber')
   }
 }

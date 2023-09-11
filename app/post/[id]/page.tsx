@@ -3,29 +3,32 @@ import { type PostType, type FormattedPost, type PostPageProps } from '@/lib/typ
 import Content from './Content'
 import Sidebar from '@/app/(shared)/Sidebar'
 import SocialLinks from '@/app/(shared)/SocialLinks'
+import { PostNotFoundError } from '@/lib/errors'
 
 export const revalidate = 120
 
 const getPost = async (id: string) => {
-  const post: PostType | null = await prisma.post.findUnique({
-    where: { id },
-    include: {
-      author: true
+  try {
+    const post: PostType | null = await prisma.post.findUnique({
+      where: { id },
+      include: {
+        author: true
+      }
+    })
+    if (post === null) {
+      throw new PostNotFoundError('Post not Found')
     }
-  })
 
-  if (post === null) {
-    console.log(`Post with the Id ${id} not found`)
-    return null
+    const formattedPost = {
+      ...post,
+      createdAt: post?.createdAt?.toISOString(),
+      updatedAt: post?.updatedAt?.toISOString()
+    }
+
+    return formattedPost
+  } catch (error) {
+    throw new PostNotFoundError('Post not Found')
   }
-
-  const formattedPost = {
-    ...post,
-    createdAt: post?.createdAt?.toISOString(),
-    updatedAt: post?.updatedAt?.toISOString()
-  }
-
-  return formattedPost
 }
 
 const page = async ({ params }: PostPageProps) => {
