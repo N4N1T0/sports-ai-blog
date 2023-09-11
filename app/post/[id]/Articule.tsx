@@ -3,6 +3,7 @@ import { EditorContent } from '@tiptap/react'
 import { Rocket } from 'lucide-react'
 import EditorMenuBar from './EditorMenuBar'
 import { type ArticuleProps } from '@/lib/types'
+import { AIProcessingError } from '@/lib/errors'
 
 function Articule ({
   contentError,
@@ -18,24 +19,28 @@ function Articule ({
   }
 
   const postAiContent = async () => {
-    editor
-      .chain()
-      .focus()
-      .setContent('Generating Ai Content. Please Wait...')
-      .run()
+    try {
+      editor
+        .chain()
+        .focus()
+        .setContent('Generating Ai Content. Please Wait...')
+        .run()
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        title,
-        role
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          role
+        })
       })
-    })
-    const data = await response.json()
+      const data = await response.json()
 
-    editor.chain().focus().setContent(data.content).run()
-    setContent(data.content)
+      editor.chain().focus().setContent(data.content).run()
+      setContent(data.content)
+    } catch (error) {
+      throw new AIProcessingError('Can&apos;t write the post right now')
+    }
   }
 
   return (
