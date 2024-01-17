@@ -16,8 +16,8 @@ export const HomeMetadata: Metadata = {
         url: 'https://sports-ai-blog.vercel.app/lego.jpg',
         width: 1200,
         height: 631,
-        alt: 'Open Graph Picture for Striking Gold',
-      },
+        alt: 'Open Graph Picture for Striking Gold'
+      }
     ],
     locale: 'en_US',
     type: 'website'
