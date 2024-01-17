@@ -11,7 +11,17 @@ export const HomeMetadata: Metadata = {
     title: 'Striking Gold - Your Ultimate Source for Combat Sports',
     description: 'Striking Gold - Your Ultimate Source for Combat Sports',
     siteName: 'Striking Gold Blog',
-    authors: 'Adrian "Nano" Alvarez'
+    authors: 'Adrian "Nano" Alvarez',
+    images: [
+      {
+        url: 'https://sports-ai-blog.vercel.app/lego.jpg',
+        width: 1200,
+        height: 631,
+        alt: 'Open Graph Picture for Striking Gold',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website'
   },
   formatDetection: {
     email: true,
