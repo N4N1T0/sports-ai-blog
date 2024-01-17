@@ -11,7 +11,6 @@ export const HomeMetadata: Metadata = {
     title: 'Striking Gold - Your Ultimate Source for Combat Sports',
     description: 'Striking Gold - Your Ultimate Source for Combat Sports',
     siteName: 'Striking Gold Blog',
-    authors: 'Adrian "Nano" Alvarez',
     images: [
       {
         url: 'https://sports-ai-blog.vercel.app/lego.jpg',
@@ -31,6 +30,7 @@ export const HomeMetadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Striking Gold - Your Ultimate Source for Combat Sports',
-    description: 'Explore the latest news, analysis, and insights on MMA and combat sports. Get expert opinions, fight predictions, and more.'
+    description: 'Explore the latest news, analysis, and insights on MMA and combat sports. Get expert opinions, fight predictions, and more.',
+    images: ['https://sports-ai-blog.vercel.app/lego.jpg']
   }
 }
